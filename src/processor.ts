@@ -35,7 +35,7 @@ const transferAcc = Counter.register("transfer_acc")
 
 // event handler for Transfer event
 // record the amount of each mint event, along with token symbol as label
-// recording both intantaneous amount as gauge and cumulative amount as counter
+// recording both instantaneous amount as gauge and cumulative amount as counter
 // Also recording a Eventlog for each transfer and mint event
 // Keep track of the balance of each account in a table
 // points are updated as funds are transferred and minted for related account
@@ -147,7 +147,7 @@ async function calcPoints(
 // processor binding logic to bind the right contract address and attach right event and block handlers
 // onTimeInterval is used to update the balance and points of each account every hour
 LBTCProcessor.bind({ address: LBTC_PROXY })
-    .onEventTransfer(transferEventHandler) // if filter by mint LBTCProcessor.filters.Transfer(0x0, null)
+    .onEventTransfer(transferEventHandler) // if filter by mint LBTC Processor.filters.Transfer(0x0, null)
     .onTimeInterval(
         async (_, ctx) => {
             await updateAll(ctx, "TimeInterval");

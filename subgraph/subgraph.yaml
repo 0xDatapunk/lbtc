@@ -5,12 +5,12 @@ schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum
-    name: lbtc
+    name: LBTC
     network: mainnet
     source:
       address: "0x8236a87084f8B84306f72007F36F2618A5634494"
-      abi: lbtc
-      startBlock: 0
+      abi: LBTC
+      startBlock: 19888667
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.9
@@ -19,8 +19,8 @@ dataSources:
         - AdminChanged
         - Upgraded
       abis:
-        - name: lbtc
-          file: ./abis/lbtc.json
+        - name: LBTC
+          file: ./abis/LBTC.json
       eventHandlers:
         - event: AdminChanged(address,address)
           handler: handleAdminChanged

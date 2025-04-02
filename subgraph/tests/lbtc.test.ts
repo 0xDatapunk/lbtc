@@ -8,7 +8,7 @@ import {
 } from "matchstick-as/assembly/index"
 import { Address } from "@graphprotocol/graph-ts"
 import { AdminChanged } from "../generated/schema"
-import { AdminChanged as AdminChangedEvent } from "../generated/lbtc/lbtc"
+import { AdminChanged as AdminChangedEvent } from "../generated/LBTC/LBTC"
 import { handleAdminChanged } from "../src/lbtc"
 import { createAdminChangedEvent } from "./lbtc-utils"
 

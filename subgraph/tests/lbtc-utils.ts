@@ -1,6 +1,6 @@
 import { newMockEvent } from "matchstick-as"
 import { ethereum, Address } from "@graphprotocol/graph-ts"
-import { AdminChanged, Upgraded } from "../generated/lbtc/lbtc"
+import { AdminChanged, Upgraded } from "../generated/LBTC/LBTC"
 
 export function createAdminChangedEvent(
   previousAdmin: Address,

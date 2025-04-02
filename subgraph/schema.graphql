@@ -1,34 +1,19 @@
-type AdminChanged @entity(immutable: true) {
-  id: Bytes!
-  previousAdmin: Bytes! # address
-  newAdmin: Bytes! # address
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
+type Snapshot @entity {
+  id: ID! # account-timestamp
+  account: Accounts! @index
+  timestampMilli: BigInt! @index
+  mintAmount: BigDecimal
+  balance: BigDecimal!
+  point: BigDecimal
 }
 
-type Upgraded @entity(immutable: true) {
-  id: Bytes!
-  implementation: Bytes! # address
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
+type Accounts @entity {
+  id: ID! # account
+  lastSnapshotTimestamp: BigInt!
+  snapshots: [Snapshot!]! @derivedFrom(field: "account")
 }
 
-type Contract @entity {
+type AccountRegistry @entity {
   id: ID!
-  implementation: Bytes! # address
-  lastUpgradeBlock: BigInt!
-  lastUpgradeTimestamp: BigInt!
+  accounts: [String!]!
 }
-
-type Transfer @entity(immutable: true) {
-  id: Bytes!
-  from: Bytes! # address
-  to: Bytes! # address
-  amount: BigInt!
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-

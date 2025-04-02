@@ -23,7 +23,8 @@ import {
   TreasuryAddressChanged as TreasuryAddressChangedEvent,
   Unpaused as UnpausedEvent,
   UnstakeRequest as UnstakeRequestEvent,
-  WithdrawalsEnabled as WithdrawalsEnabledEvent
+  WithdrawalsEnabled as WithdrawalsEnabledEvent,
+  LBTC as LBTCContract
 } from "../generated/LBTC/LBTC"
 import {
   Approval,

@@ -1,15 +1,20 @@
-type AccountSnapshot @entity {
-  id: ID! 
-  account: String! @index
-  timestampMilli: BigInt!
-  balance: BigDecimal!
-  point: BigDecimal
+type Snapshot @entity {
+  id: ID! # account-timestamp or GLOBAL_UPDATE_KEY for global state
+  account: Accounts @index # Null for global update tracker
+  timestampMilli: BigInt! @index # Block timestamp in milliseconds
+  mintAmount: BigDecimal # Amount minted in this snapshot (if applicable)
+  balance: BigDecimal! # Current token balance
+  point: BigDecimal # Accumulated points
 }
 
-type LBTCTransfer @entity {
-  id: ID!
-  block: Int!
-  from: String! @index
-  to: String! @index
-  value: BigInt!
+type Accounts @entity {
+  id: ID! # Account address
+  lastSnapshotTimestamp: BigInt! # Timestamp of the last snapshot for this account
+  snapshots: [Snapshot!]! @derivedFrom(field: "account") # All snapshots for this account
+}
+
+type AccountRegistry @entity {
+  id: ID! # Always "main"
+  accounts: [String!]! # List of all account addresses
+  lastSnapshotTimestamp: BigInt! # Timestamp of the last snapshot for global update
 }

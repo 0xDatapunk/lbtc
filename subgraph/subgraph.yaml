@@ -16,16 +16,18 @@ dataSources:
       apiVersion: 0.0.9
       language: wasm/assemblyscript
       entities:
-        - AdminChanged
-        - Upgraded
+        - Accounts
+        - Snapshot
       abis:
         - name: LBTC
           file: ./abis/LBTC.json
       eventHandlers:
-        - event: AdminChanged(address,address)
-          handler: handleAdminChanged
-        - event: Upgraded(indexed address)
-          handler: handleUpgraded
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
+      blockHandlers:
+        - handler: handleBlock
+          filter:
+            kind: polling
+            # Ethereum blocks are ~12 seconds, so ~300 blocks ≈ 1 hour
+            every: 300
       file: ./src/lbtc.ts

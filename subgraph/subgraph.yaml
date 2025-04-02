@@ -26,4 +26,6 @@ dataSources:
           handler: handleAdminChanged
         - event: Upgraded(indexed address)
           handler: handleUpgraded
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
       file: ./src/lbtc.ts

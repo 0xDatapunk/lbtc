@@ -11,3 +11,19 @@ https://docs.envio.dev/docs/HyperIndex/contract-import
 pnpm dlx envio init
 pnpm codegen
 
+
+Ponder, instead of using standard schema.graphql, uses ponder.schema.ts 
+allow block interval function
+pnpm dev hot load
+started at 2:00pm
+
+
+sqd
+started at 3pm
+
+
+sentio
+finisehd in 6 hours
+
+
+

@@ -25,7 +25,7 @@ export const processor = new EvmBatchProcessor()
     // (including unfinalized blocks) in real time. It can also be used to
     //   - make direct RPC queries to get extra data during indexing
     //   - sync a squid without a gateway (slow)
-    .setRpcEndpoint('http://rpc.internal.sentioxyz.co/ethereum')
+    .setRpcEndpoint('https://rpc.sentio.xyz/OKEWa7KMiitYnf9oPpQ5doBxovcUMvJs/ethereum')
     .setFinalityConfirmation(75)
 	.addLog({
 		address: [LBTC_PROXY],

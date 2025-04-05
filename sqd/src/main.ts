@@ -161,7 +161,7 @@ processor.run(new TypeormDatabase({supportHotBlocks: true}), async (ctx) => {
                 // Process sender account
                 if (from !== '0x0000000000000000000000000000000000000000') {
                     const fromAccount = await getOrCreateAccount(ctx.store, from)
-                    const fromLastData = await getLastSnapshotData(ctx.store, from, blockTimestamp)
+                    const fromLastData = await getLastSnapshotData(ctx.store, from)
                     const fromBalance = BigDecimal(await lbtc.balanceOf(from))
                     
                     await createAndSaveSnapshot(
@@ -178,7 +178,7 @@ processor.run(new TypeormDatabase({supportHotBlocks: true}), async (ctx) => {
 
                 // Process receiver account
                 const toAccount = await getOrCreateAccount(ctx.store, to) 
-                const toLastData = await getLastSnapshotData(ctx.store, to, blockTimestamp)
+                const toLastData = await getLastSnapshotData(ctx.store, to)
                 const toBalance = BigDecimal(await lbtc.balanceOf(to))
                 
                 const isMint = from === '0x0000000000000000000000000000000000000000'
@@ -215,7 +215,7 @@ processor.run(new TypeormDatabase({supportHotBlocks: true}), async (ctx) => {
                         
                         // Check if it's time for an hourly update for this specific account
                         if (await shouldUpdateHourly(ctx.store, accountId, blockTimestamp)) {
-                            const lastData = await getLastSnapshotData(ctx.store, accountId, blockTimestamp)
+                            const lastData = await getLastSnapshotData(ctx.store, accountId)
                             const balance = BigDecimal(await lbtc.balanceOf(accountId))
                             
                             await createAndSaveSnapshot(

@@ -9,7 +9,7 @@ const erc20Abi = parseAbi([
 // Create a public client to interact with the blockchain
 const client = createPublicClient({
   chain: mainnet,
-  transport: http("http://rpc.internal.sentioxyz.co/ethereum "), // Changed from Ankr which requires API key
+  transport: http("https://rpc.sentio.xyz/xxJqFHWgnbVQgHSUGVlAFtoTgkVMWD56/ethereum"), // Changed from Ankr which requires API key
 });
 
 // Get the contract instance for LBTC

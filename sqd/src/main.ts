@@ -43,7 +43,7 @@ async function getOrCreateAccount(store: any, address: string): Promise<Accounts
 }
 
 // Helper to get the last snapshot data
-async function getLastSnapshotData(store: any, accountId: string, timestamp: bigint): Promise<{
+async function getLastSnapshotData(store: any, accountId: string): Promise<{
   point: BigDecimal,
   balance: BigDecimal,
   timestamp: bigint,

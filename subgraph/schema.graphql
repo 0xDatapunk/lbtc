@@ -1,4 +1,4 @@
-type Snapshot @entity {
+type Snapshot @entity(immutable: false) {
   id: ID! # account-timestamp
   account: Accounts! @index
   timestampMilli: BigInt! @index
@@ -7,13 +7,13 @@ type Snapshot @entity {
   point: BigDecimal
 }
 
-type Accounts @entity {
+type Accounts @entity(immutable: false) {
   id: ID! # account
   lastSnapshotTimestamp: BigInt!
   snapshots: [Snapshot!]! @derivedFrom(field: "account")
 }
 
-type AccountRegistry @entity {
+type AccountRegistry @entity(immutable: false) {
   id: ID!
   accounts: [String!]!
 }

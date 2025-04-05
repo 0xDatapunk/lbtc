@@ -24,7 +24,7 @@ lib/*
 .vscode
 .merlin
 .bsb.lock
-**/node_modules/
+/node_modules/
 benchmarks/
 artifacts
 cache
@@ -35,13 +35,3 @@ logs
 *.gen.ts
 build
 .env
-**/dist/
-**/build/
-**/node_modules/
-**/dist/
-**/build/
-**/node_modules/
-**/*.lock*
-**/*-lock*
-**/*.npmrc
-

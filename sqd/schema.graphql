@@ -18,3 +18,11 @@ type AccountRegistry @entity {
   accounts: [String!]! # List of all account addresses
   lastSnapshotTimestamp: BigInt! # Timestamp of the last snapshot for global update
 }
+
+type Transfer @entity {
+  id: ID!
+  from: String!
+  to: String!
+  value: BigInt!
+}
+

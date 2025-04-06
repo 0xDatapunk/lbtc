@@ -1,0 +1,159 @@
+type TransparentUpgradeableProxy_AdminChanged {
+  id: ID!
+  previousAdmin: String!
+  newAdmin: String!
+}
+
+type TransparentUpgradeableProxy_Approval {
+  id: ID!
+  owner: String!
+  spender: String!
+  value: BigInt!
+}
+
+type TransparentUpgradeableProxy_BasculeChanged {
+  id: ID!
+  prevVal: String!
+  newVal: String!
+}
+
+type TransparentUpgradeableProxy_BatchMintSkipped {
+  id: ID!
+  payloadHash: String!
+  payload: String!
+}
+
+type TransparentUpgradeableProxy_BridgeChanged {
+  id: ID!
+  prevVal: String!
+  newVal: String!
+}
+
+type TransparentUpgradeableProxy_BurnCommissionChanged {
+  id: ID!
+  prevValue: BigInt!
+  newValue: BigInt!
+}
+
+type TransparentUpgradeableProxy_ClaimerUpdated {
+  id: ID!
+  claimer: String!
+  isClaimer: Boolean!
+}
+
+type TransparentUpgradeableProxy_ConsortiumChanged {
+  id: ID!
+  prevVal: String!
+  newVal: String!
+}
+
+type TransparentUpgradeableProxy_DustFeeRateChanged {
+  id: ID!
+  oldRate: BigInt!
+  newRate: BigInt!
+}
+
+type TransparentUpgradeableProxy_EIP712DomainChanged {
+  id: ID!
+}
+
+type TransparentUpgradeableProxy_FeeChanged {
+  id: ID!
+  oldFee: BigInt!
+  newFee: BigInt!
+}
+
+type TransparentUpgradeableProxy_FeeCharged {
+  id: ID!
+  fee: BigInt!
+  userSignature: String!
+}
+
+type TransparentUpgradeableProxy_Initialized {
+  id: ID!
+  version: BigInt!
+}
+
+type TransparentUpgradeableProxy_MintProofConsumed {
+  id: ID!
+  recipient: String!
+  payloadHash: String!
+  payload: String!
+}
+
+type TransparentUpgradeableProxy_MinterUpdated {
+  id: ID!
+  minter: String!
+  isMinter: Boolean!
+}
+
+type TransparentUpgradeableProxy_NameAndSymbolChanged {
+  id: ID!
+  name: String!
+  symbol: String!
+}
+
+type TransparentUpgradeableProxy_OperatorRoleTransferred {
+  id: ID!
+  previousOperator: String!
+  newOperator: String!
+}
+
+type TransparentUpgradeableProxy_OwnershipTransferStarted {
+  id: ID!
+  previousOwner: String!
+  newOwner: String!
+}
+
+type TransparentUpgradeableProxy_OwnershipTransferred {
+  id: ID!
+  previousOwner: String!
+  newOwner: String!
+}
+
+type TransparentUpgradeableProxy_Paused {
+  id: ID!
+  account: String!
+}
+
+type TransparentUpgradeableProxy_PauserRoleTransferred {
+  id: ID!
+  previousPauser: String!
+  newPauser: String!
+}
+
+type TransparentUpgradeableProxy_Transfer {
+  id: ID!
+  from: String!
+  to: String!
+  value: BigInt!
+}
+
+type TransparentUpgradeableProxy_TreasuryAddressChanged {
+  id: ID!
+  prevValue: String!
+  newValue: String!
+}
+
+type TransparentUpgradeableProxy_Unpaused {
+  id: ID!
+  account: String!
+}
+
+type TransparentUpgradeableProxy_UnstakeRequest {
+  id: ID!
+  fromAddress: String!
+  scriptPubKey: String!
+  amount: BigInt!
+}
+
+type TransparentUpgradeableProxy_Upgraded {
+  id: ID!
+  implementation: String!
+}
+
+type TransparentUpgradeableProxy_WithdrawalsEnabled {
+  id: ID!
+  _0: Boolean!
+}
+

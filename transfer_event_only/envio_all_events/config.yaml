@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=./node_modules/envio/evm.schema.json
+name: envio_all_events
+networks:
+- id: 1
+  start_block: 0
+  contracts:
+  - name: TransparentUpgradeableProxy
+    address:
+    - 0x8236a87084f8B84306f72007F36F2618A5634494
+    handler: src/EventHandlers.ts
+    events:
+    - event: AdminChanged(address previousAdmin, address newAdmin)
+    - event: Approval(address indexed owner, address indexed spender, uint256 value)
+    - event: BasculeChanged(address indexed prevVal, address indexed newVal)
+    - event: BatchMintSkipped(bytes32 indexed payloadHash, bytes payload)
+    - event: BridgeChanged(address indexed prevVal, address indexed newVal)
+    - event: BurnCommissionChanged(uint64 indexed prevValue, uint64 indexed newValue)
+    - event: ClaimerUpdated(address indexed claimer, bool isClaimer)
+    - event: ConsortiumChanged(address indexed prevVal, address indexed newVal)
+    - event: DustFeeRateChanged(uint256 indexed oldRate, uint256 indexed newRate)
+    - event: EIP712DomainChanged()
+    - event: FeeChanged(uint256 indexed oldFee, uint256 indexed newFee)
+    - event: FeeCharged(uint256 indexed fee, bytes userSignature)
+    - event: Initialized(uint64 version)
+    - event: MintProofConsumed(address indexed recipient, bytes32 indexed payloadHash, bytes payload)
+    - event: MinterUpdated(address indexed minter, bool isMinter)
+    - event: NameAndSymbolChanged(string name, string symbol)
+    - event: OperatorRoleTransferred(address indexed previousOperator, address indexed newOperator)
+    - event: OwnershipTransferStarted(address indexed previousOwner, address indexed newOwner)
+    - event: OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
+    - event: Paused(address account)
+    - event: PauserRoleTransferred(address indexed previousPauser, address indexed newPauser)
+    - event: Transfer(address indexed from, address indexed to, uint256 value)
+    - event: TreasuryAddressChanged(address indexed prevValue, address indexed newValue)
+    - event: Unpaused(address account)
+    - event: UnstakeRequest(address indexed fromAddress, bytes scriptPubKey, uint256 amount)
+    - event: Upgraded(address indexed implementation)
+    - event: WithdrawalsEnabled(bool )
+unordered_multichain_mode: true

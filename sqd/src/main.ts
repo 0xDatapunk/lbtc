@@ -1,5 +1,5 @@
 import {TypeormDatabase} from '@subsquid/typeorm-store'
-import {Accounts, Snapshot, AccountRegistry} from './model'
+import {Accounts, Snapshot, AccountRegistry, Transfer} from './model'
 import {LBTC_PROXY} from "./constant.js"
 import {processor} from './processor'
 import {BigDecimal} from '@subsquid/big-decimal'
@@ -93,58 +93,87 @@ async function shouldUpdateHourly(store: any, accountId: string, currentTimestam
 async function createAndSaveSnapshot(
   store: any,
   accountId: string, 
-  timestamp: bigint, 
-  balance: BigDecimal, 
-  lastPoint: BigDecimal, 
-  lastBalance: BigDecimal, 
+  timestamp: bigint,
+  balance: BigDecimal,
+  lastPoint: BigDecimal,
+  lastBalance: BigDecimal,
   lastTimestamp: bigint,
   lastMintAmount: BigDecimal,
+  snapshotsMap: Map<string, Snapshot>,
+  accountsToUpdate: Map<string, Accounts>,
   isMint: boolean = false,
   mintAmount: bigint = 0n
 ): Promise<void> {
-  let account = await store.get(Accounts, accountId)
-  if (!account) {
-    account = await getOrCreateAccount(store, accountId)
+  const snapshotKey = `${accountId}-${timestamp}`;
+  
+  // Get account from map if exists, otherwise from store
+  let account: Accounts;
+  if (accountsToUpdate.has(accountId)) {
+    account = accountsToUpdate.get(accountId)!;
+  } else {
+    account = await store.get(Accounts, accountId);
+    if (!account) {
+      account = new Accounts({
+        id: accountId,
+        lastSnapshotTimestamp: 0n
+      });
+      // Add to registry (this could also be optimized)
+      await addAccountToRegistry(store, accountId);
+    }
   }
   
-  let snapshot = new Snapshot({
-    id: `${accountId}-${timestamp}`,
-    account,
-    timestampMilli: timestamp,
-    balance: balance
-  })
+  // Get existing snapshot or create new one
+  let snapshot: Snapshot;
+  if (snapshotsMap.has(snapshotKey)) {
+    snapshot = snapshotsMap.get(snapshotKey)!;
+    // Update the balance instead of skipping
+    snapshot.balance = balance;
+  } else {
+    snapshot = new Snapshot({
+      id: snapshotKey,
+      account,
+      timestampMilli: timestamp,
+      balance: balance
+    });
+  }
   
   // Handle mint amount if it's a mint transaction
   if (isMint) {
-    snapshot.mintAmount = lastMintAmount.plus(BigDecimal(mintAmount.toString()))
-  } else {
-    snapshot.mintAmount = lastMintAmount
+    // If we already have a mintAmount, add to it
+    snapshot.mintAmount = snapshot.mintAmount ? 
+      snapshot.mintAmount.plus(BigDecimal(mintAmount.toString())) : 
+      lastMintAmount.plus(BigDecimal(mintAmount.toString()));
+  } else if (!snapshot.mintAmount) {
+    // Only set mintAmount if not already set
+    snapshot.mintAmount = lastMintAmount;
   }
   
   // Calculate point based on previous values
   if (lastTimestamp != 0n) {
-    // Calculate time delta in seconds
-    const secondsSinceLastUpdate = Number(timestamp - lastTimestamp) / 1000
-    
-    // Updated points calculation: 1000 points per day
+    const secondsSinceLastUpdate = Number(timestamp - lastTimestamp) / 1000;
     snapshot.point = lastPoint.plus(
       lastBalance
-        .times(BigDecimal(1000)) // 1000 points per day
-        .times(BigDecimal(secondsSinceLastUpdate / 86400)) // Convert to days
-    )
-  } else {
-    snapshot.point = BigDecimal(0)
+        .times(BigDecimal(1000))
+        .times(BigDecimal(secondsSinceLastUpdate / 86400))
+    );
+  } else if (!snapshot.point) {
+    snapshot.point = BigDecimal(0);
   }
   
-  await store.save(snapshot)
-  
   // Update account's last snapshot timestamp
-  account.lastSnapshotTimestamp = timestamp
-  await store.save(account)
+  account.lastSnapshotTimestamp = timestamp;
+  
+  // Add to maps
+  snapshotsMap.set(snapshotKey, snapshot);
+  accountsToUpdate.set(accountId, account);
 }
 
 processor.run(new TypeormDatabase({supportHotBlocks: true}), async (ctx) => {
     const HOUR_IN_MS = 60n * 60n * 1000n
+    const transfers: Transfer[] = []
+    // Use Maps for both snapshots and accounts to prevent duplicates
+    const snapshotsMap = new Map<string, Snapshot>() // key: accountId-timestamp
+    const accountsToUpdate = new Map<string, Accounts>()
     
     for (let block of ctx.blocks) {
         let lbtc = new Contract({_chain: ctx._chain, block: block.header}, LBTC_PROXY)
@@ -155,8 +184,14 @@ processor.run(new TypeormDatabase({supportHotBlocks: true}), async (ctx) => {
                 // Handle transfer events
                 let {from, to, value} = events.Transfer.decode(log)
                 
-                // Process transfers
-                let transferId = log.id
+                transfers.push(
+                    new Transfer({
+                        id: `${block.header.id}_${block.header.height}_${log.logIndex}`,
+                        from: from,
+                        to: to,
+                        value: value,
+                    })
+                )
 
                 // Process sender account
                 if (from !== '0x0000000000000000000000000000000000000000') {
@@ -172,7 +207,9 @@ processor.run(new TypeormDatabase({supportHotBlocks: true}), async (ctx) => {
                         fromLastData.point,
                         fromLastData.balance,
                         fromLastData.timestamp,
-                        fromLastData.mintAmount
+                        fromLastData.mintAmount,
+                        snapshotsMap,
+                        accountsToUpdate
                     )
                 }
 
@@ -192,6 +229,8 @@ processor.run(new TypeormDatabase({supportHotBlocks: true}), async (ctx) => {
                     toLastData.balance,
                     toLastData.timestamp,
                     toLastData.mintAmount,
+                    snapshotsMap,
+                    accountsToUpdate,
                     isMint,
                     value
                 )
@@ -226,7 +265,9 @@ processor.run(new TypeormDatabase({supportHotBlocks: true}), async (ctx) => {
                                 lastData.point,
                                 lastData.balance,
                                 lastData.timestamp,
-                                lastData.mintAmount
+                                lastData.mintAmount,
+                                snapshotsMap,
+                                accountsToUpdate
                             )
                         }
                     }
@@ -235,8 +276,13 @@ processor.run(new TypeormDatabase({supportHotBlocks: true}), async (ctx) => {
         }
     }
     
+    // Batch save all entities at the end
+    await ctx.store.insert(transfers)
+    if (snapshotsMap.size > 0) await ctx.store.save([...snapshotsMap.values()])
+    if (accountsToUpdate.size > 0) await ctx.store.save([...accountsToUpdate.values()])
+    
     // Log processing summary
     const startBlock = ctx.blocks.at(0)?.header.height
     const endBlock = ctx.blocks.at(-1)?.header.height
-    ctx.log.info(`Processed blocks from ${startBlock} to ${endBlock}`)
+    ctx.log.info(`Processed blocks from ${startBlock} to ${endBlock}, saved ${transfers.length} transfers, ${snapshotsMap.size} snapshots, and ${accountsToUpdate.size} accounts`)
 })

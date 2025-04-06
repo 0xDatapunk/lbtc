@@ -1,0 +1,29 @@
+specVersion: 1.3.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: TransparentUpgradeableProxy
+    network: mainnet
+    source:
+      address: "0x8236a87084f8B84306f72007F36F2618A5634494"
+      abi: TransparentUpgradeableProxy
+      startBlock: 19888667
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.9
+      language: wasm/assemblyscript
+      entities:
+        - AdminChanged
+        - Upgraded
+      abis:
+        - name: TransparentUpgradeableProxy
+          file: ./abis/TransparentUpgradeableProxy.json
+      eventHandlers:
+        - event: AdminChanged(address,address)
+          handler: handleAdminChanged
+        - event: Upgraded(indexed address)
+          handler: handleUpgraded
+      file: ./src/transparent-upgradeable-proxy.ts

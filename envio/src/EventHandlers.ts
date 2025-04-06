@@ -18,6 +18,14 @@ TransparentUpgradeableProxy.Transfer.handler(async ({ event, context }) => {
 
   let {from, to, value} = {from: event.params.from, to: event.params.to, value: event.params.value}
 
+  const entity: TransparentUpgradeableProxy_Transfer = {
+    id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
+    from: from,
+    to: to,
+    value: value,
+  };
+
+  context.TransparentUpgradeableProxy_Transfer.set(entity);
   // Process sender account
   if (from !== '0x0000000000000000000000000000000000000000') {
       const fromAccount = await getOrCreateAccount(context,from)

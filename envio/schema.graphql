@@ -24,4 +24,4 @@ type TransparentUpgradeableProxy_Transfer {
   from: String!
   to: String!
   value: BigInt!
-}
+} 

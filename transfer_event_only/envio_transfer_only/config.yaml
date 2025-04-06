@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=./node_modules/envio/evm.schema.json
+name: envio_transfer_only
+networks:
+- id: 1
+  start_block: 0
+  contracts:
+  - name: TransparentUpgradeableProxy
+    address:
+    - 0x8236a87084f8B84306f72007F36F2618A5634494
+    handler: src/EventHandlers.ts
+    events:
+    - event: Transfer(address indexed from, address indexed to, uint256 value)
+unordered_multichain_mode: true

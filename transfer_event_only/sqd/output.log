@@ -1,0 +1,691 @@
+[init] [90m[4mquery:[24m[39m [94mSELECT[0m [95mversion[0m[37m([0m[37m)[0m
+[init] [90m[4mquery:[24m[39m [94mSELECT[0m [37m*[0m [94mFROM[0m [95mcurrent_schema[0m[37m([0m[37m)[0m
+[init] [90m[4mquery:[24m[39m [94mSELECT[0m [37m*[0m [94mFROM[0m [37m"information_schema"[0m[37m.[0m[37m"tables"[0m [94mWHERE[0m [37m"table_schema"[0m [37m=[0m [37m'public'[0m [94mAND[0m [37m"table_name"[0m [37m=[0m [37m'migrations'[0m
+[init] [90m[4mquery:[24m[39m [94mCREATE[0m [94mTABLE[0m [37m"migrations"[0m [37m([0m[37m"id"[0m [37mSERIAL[0m [94mNOT[0m [94mNULL[0m[37m,[0m [37m"timestamp"[0m [37mbigint[0m [94mNOT[0m [94mNULL[0m[37m,[0m [37m"name"[0m [37mcharacter[0m [37mvarying[0m [94mNOT[0m [94mNULL[0m[37m,[0m [94mCONSTRAINT[0m [37m"PK_8c82d7f526340ab734260ea46be"[0m [94mPRIMARY KEY[0m [37m([0m[37m"id"[0m[37m)[0m[37m)[0m
+[init] [90m[4mquery:[24m[39m [94mSELECT[0m [37m*[0m [94mFROM[0m [37m"migrations"[0m [37m"migrations"[0m [94mORDER BY[0m [37m"id"[0m [94mDESC[0m
+[init] [4m0 migrations are already loaded in the database.[24m
+[init] [4m1 migrations were found in the source code.[24m
+[init] [4m1 migrations are new migrations must be executed.[24m
+[init] [90m[4mquery:[24m[39m [37mSTART[0m [37mTRANSACTION[0m
+[init] [90m[4mquery:[24m[39m [94mCREATE[0m [94mTABLE[0m [37m"transfer"[0m [37m([0m[37m"id"[0m [37mcharacter[0m [37mvarying[0m [94mNOT[0m [94mNULL[0m[37m,[0m [37m"from"[0m [94mtext[0m [94mNOT[0m [94mNULL[0m[37m,[0m [37m"to"[0m [94mtext[0m [94mNOT[0m [94mNULL[0m[37m,[0m [37m"value"[0m [37mnumeric[0m [94mNOT[0m [94mNULL[0m[37m,[0m [94mCONSTRAINT[0m [37m"PK_fd9ddbdd49a17afcbe014401295"[0m [94mPRIMARY KEY[0m [37m([0m[37m"id"[0m[37m)[0m[37m)[0m
+[init] [90m[4mquery:[24m[39m [94mINSERT INTO[0m [37m"migrations"[0m[37m([0m[37m"timestamp"[0m[37m,[0m [37m"name"[0m[37m)[0m [94mVALUES[0m [37m([0m[37m$[0m[32m1[0m[37m,[0m [37m$[0m[32m2[0m[37m)[0m [90m-- PARAMETERS: [1743897236023,"Data1743897236023"][0m
+[init] [4mMigration Data1743897236023 has been executed successfully.[24m
+[init] [90m[4mquery:[24m[39m [94mCOMMIT[0m
+[api] 09:29:53 [1m[36mINFO [0m [1m[34msqd:commands[0m SERVE:PROD
+[processor] 09:29:53 [1m[36mINFO [0m [1m[34msqd:commands[0m MIGRATION:APPLY
+[processor] [90m[4mquery:[24m[39m [94mSELECT[0m [95mversion[0m[37m([0m[37m)[0m
+[processor] [90m[4mquery:[24m[39m [94mSELECT[0m [37m*[0m [94mFROM[0m [95mcurrent_schema[0m[37m([0m[37m)[0m
+[processor] [90m[4mquery:[24m[39m [94mSELECT[0m [37m*[0m [94mFROM[0m [37m"information_schema"[0m[37m.[0m[37m"tables"[0m [94mWHERE[0m [37m"table_schema"[0m [37m=[0m [37m'public'[0m [94mAND[0m [37m"table_name"[0m [37m=[0m [37m'migrations'[0m
+[processor] [90m[4mquery:[24m[39m [94mSELECT[0m [37m*[0m [94mFROM[0m [37m"migrations"[0m [37m"migrations"[0m [94mORDER BY[0m [37m"id"[0m [94mDESC[0m
+[processor] [4mNo migrations are pending[24m
+[processor] 09:29:53 [1m[36mINFO [0m [1m[34msqd:commands[0m PROCESS:PROD
+[api] 09:29:53 [1m[33mWARN [0m [1m[34msqd:graphql-server[0m enabling dumb in-memory cache (size: 100mb, ttl: 1000ms, max-age: 1000ms)
+[api] 09:29:53 [1m[36mINFO [0m [1m[34msqd:graphql-server[0m listening on port 4351
+[processor] 09:29:54 [1m[36mINFO [0m [1m[34msqd:processor[0m processing blocks from 0
+[processor] 09:29:54 [1m[36mINFO [0m [1m[34msqd:processor[0m using archive data source
+[processor] 09:29:54 [1m[36mINFO [0m [1m[34msqd:processor[0m prometheus metrics are served at port 59578
+[processor] 09:29:55 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 0 to 2368939
+[processor] 09:29:55 [1m[36mINFO [0m [1m[34msqd:processor[0m 2368939 / 22216750, rate: 2144955 blocks/sec, mapping: 1286 blocks/sec, 32 items/sec, eta: 9s
+[processor] 09:29:55 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 2368940 to 2386039
+[processor] 09:29:56 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 2386040 to 2438299
+[processor] 09:29:57 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 2438300 to 3288599
+[processor] 09:29:58 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 3288600 to 4002679
+[processor] 09:29:59 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 4002680 to 4167619
+[processor] 09:30:00 [1m[36mINFO [0m [1m[34msqd:processor[0m 4167619 / 22216750, rate: 777220 blocks/sec, mapping: 2311 blocks/sec, 48 items/sec, eta: 23s
+[processor] 09:30:00 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 4167620 to 4293479
+[processor] 09:30:02 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 4293480 to 4506719
+[processor] 09:30:03 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 4506720 to 4707539
+[processor] 09:30:04 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 4707540 to 4841499
+[processor] 09:30:05 [1m[36mINFO [0m [1m[34msqd:processor[0m 4841499 / 22216750, rate: 462640 blocks/sec, mapping: 2565 blocks/sec, 64 items/sec, eta: 38s
+[processor] 09:30:06 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 4841500 to 4960459
+[processor] 09:30:07 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 4960460 to 5103139
+[processor] 09:30:08 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 5103140 to 5249299
+[processor] 09:30:09 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 5249300 to 5409699
+[processor] 09:30:10 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 5409700 to 5543319
+[processor] 09:30:10 [1m[36mINFO [0m [1m[34msqd:processor[0m 5543319 / 22216750, rate: 344983 blocks/sec, mapping: 2887 blocks/sec, 72 items/sec, eta: 48s
+[processor] 09:30:11 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 5543320 to 5666499
+[processor] 09:30:13 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 5666500 to 5793219
+[processor] 09:30:14 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 5793220 to 5927159
+[processor] 09:30:15 [1m[36mINFO [0m [1m[34msqd:processor[0m 5927159 / 22216750, rate: 294531 blocks/sec, mapping: 2502 blocks/sec, 63 items/sec, eta: 55s
+[processor] 09:30:15 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 5927160 to 6059059
+[processor] 09:30:16 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 6059060 to 6193319
+[processor] 09:30:17 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 6193320 to 6315839
+[processor] 09:30:18 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 6315840 to 6438799
+[processor] 09:30:20 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 6438800 to 6602839
+[processor] 09:30:20 [1m[36mINFO [0m [1m[34msqd:processor[0m 6602839 / 22216750, rate: 253625 blocks/sec, mapping: 637 blocks/sec, 16 items/sec, eta: 2m
+[processor] 09:30:21 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 6602840 to 6769479
+[processor] 09:30:22 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 6769480 to 6923239
+[processor] 09:30:23 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 6923240 to 7082259
+[processor] 09:30:25 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 7082260 to 7232479
+[processor] 09:30:25 [1m[36mINFO [0m [1m[34msqd:processor[0m 7232479 / 22216750, rate: 233843 blocks/sec, mapping: 2332 blocks/sec, 58 items/sec, eta: 2m
+[processor] 09:30:26 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 7232480 to 7372139
+[processor] 09:30:27 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 7372140 to 7514479
+[processor] 09:30:28 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 7514480 to 7662079
+[processor] 09:30:28 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 7662080 to 7794379
+[processor] 09:30:30 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 7794380 to 7911199
+[processor] 09:30:30 [1m[36mINFO [0m [1m[34msqd:processor[0m 7911199 / 22216750, rate: 221691 blocks/sec, mapping: 1983 blocks/sec, 50 items/sec, eta: 2m
+[processor] 09:30:31 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 7911200 to 8029339
+[processor] 09:30:32 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 8029340 to 8151979
+[processor] 09:30:33 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 8151980 to 8276019
+[processor] 09:30:34 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 8276020 to 8406619
+[processor] 09:30:36 [1m[36mINFO [0m [1m[34msqd:processor[0m 8406619 / 22216750, rate: 210749 blocks/sec, mapping: 2426 blocks/sec, 61 items/sec, eta: 2m
+[processor] 09:30:36 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 8406620 to 8542019
+[processor] 09:30:38 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 8542020 to 8674519
+[processor] 09:30:39 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 8674520 to 8801379
+[processor] 09:30:40 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 8801380 to 8909799
+[processor] 09:30:41 [1m[36mINFO [0m [1m[34msqd:processor[0m 8909799 / 22216750, rate: 192274 blocks/sec, mapping: 2529 blocks/sec, 63 items/sec, eta: 2m
+[processor] 09:30:42 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 8909800 to 9001619
+[processor] 09:30:43 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 9001620 to 9107919
+[processor] 09:30:44 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 9107920 to 9217279
+[processor] 09:30:45 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 9217280 to 9336499
+[processor] 09:30:46 [1m[36mINFO [0m [1m[34msqd:processor[0m 9336499 / 22216750, rate: 181793 blocks/sec, mapping: 2962 blocks/sec, 74 items/sec, eta: 2m
+[processor] 09:30:47 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 9336500 to 9555979
+[processor] 09:30:49 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 9555980 to 9657399
+[processor] 09:30:50 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 9657400 to 9748019
+[processor] 09:30:51 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 9748020 to 9852679
+[processor] 09:30:51 [1m[36mINFO [0m [1m[34msqd:processor[0m 9852679 / 22216750, rate: 173247 blocks/sec, mapping: 3295 blocks/sec, 69 items/sec, eta: 2m
+[processor] 09:30:52 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 9852680 to 9948719
+[processor] 09:30:53 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 9948720 to 10039099
+[processor] 09:30:55 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 10039100 to 10130579
+[processor] 09:30:56 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 10130580 to 10222459
+[processor] 09:30:56 [1m[36mINFO [0m [1m[34msqd:processor[0m 10222459 / 22216750, rate: 129488 blocks/sec, mapping: 1898 blocks/sec, 47 items/sec, eta: 2m
+[processor] 09:30:57 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 10222460 to 10309199
+[processor] 09:30:58 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 10309200 to 10382119
+[processor] 09:30:59 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 10382120 to 10456159
+[processor] 09:31:01 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 10456160 to 10524819
+[processor] 09:31:01 [1m[36mINFO [0m [1m[34msqd:processor[0m 10524819 / 22216750, rate: 103585 blocks/sec, mapping: 1679 blocks/sec, 42 items/sec, eta: 2m
+[processor] 09:31:03 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 10524820 to 10647999
+[processor] 09:31:04 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 10648000 to 10708819
+[processor] 09:31:05 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 10708820 to 10769559
+[processor] 09:31:06 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 10769560 to 10828519
+[processor] 09:31:06 [1m[36mINFO [0m [1m[34msqd:processor[0m 10828519 / 22216750, rate: 96701 blocks/sec, mapping: 1713 blocks/sec, 36 items/sec, eta: 2m
+[processor] 09:31:08 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 10828520 to 10886279
+[processor] 09:31:09 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 10886280 to 10945159
+[processor] 09:31:10 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 10945160 to 11005479
+[processor] 09:31:11 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 11005480 to 11066619
+[processor] 09:31:11 [1m[36mINFO [0m [1m[34msqd:processor[0m 11066619 / 22216750, rate: 90335 blocks/sec, mapping: 1945 blocks/sec, 49 items/sec, eta: 3m
+[processor] 09:31:14 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 11066620 to 11185619
+[processor] 09:31:14 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 11185620 to 11188759
+[processor] 09:31:15 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 11188760 to 11249499
+[processor] 09:31:16 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 11249500 to 11308939
+[processor] 09:31:16 [1m[36mINFO [0m [1m[34msqd:processor[0m 11308939 / 22216750, rate: 86747 blocks/sec, mapping: 1751 blocks/sec, 44 items/sec, eta: 3m
+[processor] 09:31:18 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 11308940 to 11471059
+[processor] 09:31:19 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 11471060 to 11485379
+[processor] 09:31:20 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 11485380 to 11541699
+[processor] 09:31:21 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 11541700 to 11598599
+[processor] 09:31:21 [1m[36mINFO [0m [1m[34msqd:processor[0m 11598599 / 22216750, rate: 82161 blocks/sec, mapping: 2855 blocks/sec, 59 items/sec, eta: 3m
+[processor] 09:31:23 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 11598600 to 11655799
+[processor] 09:31:24 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 11655800 to 11712779
+[processor] 09:31:25 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 11712780 to 11768379
+[processor] 09:31:26 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 11768380 to 11824159
+[processor] 09:31:26 [1m[36mINFO [0m [1m[34msqd:processor[0m 11824159 / 22216750, rate: 75225 blocks/sec, mapping: 1781 blocks/sec, 45 items/sec, eta: 3m
+[processor] 09:31:28 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 11824160 to 11879859
+[processor] 09:31:29 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 11879860 to 11935899
+[processor] 09:31:30 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 11935900 to 11992519
+[processor] 09:31:31 [1m[36mINFO [0m [1m[34msqd:processor[0m 11992519 / 22216750, rate: 70445 blocks/sec, mapping: 2430 blocks/sec, 61 items/sec, eta: 3m
+[processor] 09:31:32 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 11992520 to 12048499
+[processor] 09:31:33 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 12048500 to 12104959
+[processor] 09:31:34 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 12104960 to 12161059
+[processor] 09:31:35 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 12161060 to 12217499
+[processor] 09:31:36 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 12217500 to 12272239
+[processor] 09:31:36 [1m[36mINFO [0m [1m[34msqd:processor[0m 12272239 / 22216750, rate: 63803 blocks/sec, mapping: 2895 blocks/sec, 72 items/sec, eta: 3m
+[processor] 09:31:37 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 12272240 to 12321219
+[processor] 09:31:40 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 12321220 to 12411059
+[processor] 09:31:40 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 12411060 to 12413379
+[processor] 09:31:41 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 12413380 to 12459739
+[processor] 09:31:41 [1m[36mINFO [0m [1m[34msqd:processor[0m 12459739 / 22216750, rate: 59494 blocks/sec, mapping: 1656 blocks/sec, 41 items/sec, eta: 3m
+[processor] 09:31:43 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 12459740 to 12504699
+[processor] 09:31:44 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 12504700 to 12552719
+[processor] 09:31:45 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 12552720 to 12601619
+[processor] 09:31:46 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 12601620 to 12649279
+[processor] 09:31:46 [1m[36mINFO [0m [1m[34msqd:processor[0m 12649279 / 22216750, rate: 56309 blocks/sec, mapping: 1829 blocks/sec, 46 items/sec, eta: 3m
+[processor] 09:31:47 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 12649280 to 12695639
+[processor] 09:31:48 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 12695640 to 12742119
+[processor] 09:31:50 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 12742120 to 12790519
+[processor] 09:31:51 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 12790520 to 12838979
+[processor] 09:31:51 [1m[36mINFO [0m [1m[34msqd:processor[0m 12838979 / 22216750, rate: 50832 blocks/sec, mapping: 1197 blocks/sec, 30 items/sec, eta: 4m
+[processor] 09:31:52 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 12838980 to 12886219
+[processor] 09:31:54 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 12886220 to 12933179
+[processor] 09:31:55 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 12933180 to 12980359
+[processor] 09:31:56 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 12980360 to 13026899
+[processor] 09:31:56 [1m[36mINFO [0m [1m[34msqd:processor[0m 13026899 / 22216750, rate: 47697 blocks/sec, mapping: 2016 blocks/sec, 50 items/sec, eta: 4m
+[processor] 09:31:57 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 13026900 to 13073499
+[processor] 09:31:58 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 13073500 to 13119539
+[processor] 09:31:59 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 13119540 to 13170759
+[processor] 09:32:00 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 13170760 to 13219379
+[processor] 09:32:01 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 13219380 to 13265559
+[processor] 09:32:01 [1m[36mINFO [0m [1m[34msqd:processor[0m 13265559 / 22216750, rate: 45448 blocks/sec, mapping: 1880 blocks/sec, 47 items/sec, eta: 4m
+[processor] 09:32:02 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 13265560 to 13310439
+[processor] 09:32:03 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 13310440 to 13356079
+[processor] 09:32:04 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 13356080 to 13404019
+[processor] 09:32:05 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 13404020 to 13453219
+[processor] 09:32:06 [1m[36mINFO [0m [1m[34msqd:processor[0m 13453219 / 22216750, rate: 44784 blocks/sec, mapping: 1708 blocks/sec, 43 items/sec, eta: 4m
+[processor] 09:32:07 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 13453220 to 13501119
+[processor] 09:32:08 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 13501120 to 13548399
+[processor] 09:32:09 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 13548400 to 13596499
+[processor] 09:32:11 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 13596500 to 13644699
+[processor] 09:32:11 [1m[36mINFO [0m [1m[34msqd:processor[0m 13644699 / 22216750, rate: 43556 blocks/sec, mapping: 1787 blocks/sec, 45 items/sec, eta: 4m
+[processor] 09:32:12 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 13644700 to 13692459
+[processor] 09:32:13 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 13692460 to 13741379
+[processor] 09:32:14 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 13741380 to 13790639
+[processor] 09:32:15 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 13790640 to 13839919
+[processor] 09:32:16 [1m[36mINFO [0m [1m[34msqd:processor[0m 13839919 / 22216750, rate: 42826 blocks/sec, mapping: 2481 blocks/sec, 62 items/sec, eta: 4m
+[processor] 09:32:17 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 13839920 to 13888079
+[processor] 09:32:18 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 13888080 to 13933859
+[processor] 09:32:19 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 13933860 to 13977559
+[processor] 09:32:19 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 13977560 to 14022779
+[processor] 09:32:21 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 14022780 to 14065019
+[processor] 09:32:21 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 14065020 to 14106959
+[processor] 09:32:21 [1m[36mINFO [0m [1m[34msqd:processor[0m 14106959 / 22216750, rate: 41614 blocks/sec, mapping: 3513 blocks/sec, 88 items/sec, eta: 4m
+[processor] 09:32:22 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 14106960 to 14151119
+[processor] 09:32:23 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 14151120 to 14194399
+[processor] 09:32:24 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 14194400 to 14235899
+[processor] 09:32:26 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 14235900 to 14316399
+[processor] 09:32:26 [1m[36mINFO [0m [1m[34msqd:processor[0m 14316399 / 22216750, rate: 42298 blocks/sec, mapping: 3076 blocks/sec, 64 items/sec, eta: 4m
+[processor] 09:32:27 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 14316400 to 14358659
+[processor] 09:32:28 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 14358660 to 14400639
+[processor] 09:32:29 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 14400640 to 14442039
+[processor] 09:32:30 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 14442040 to 14483179
+[processor] 09:32:31 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 14483180 to 14523479
+[processor] 09:32:31 [1m[36mINFO [0m [1m[34msqd:processor[0m 14523479 / 22216750, rate: 41756 blocks/sec, mapping: 1666 blocks/sec, 42 items/sec, eta: 4m
+[processor] 09:32:32 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 14523480 to 14562599
+[processor] 09:32:33 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 14562600 to 14602039
+[processor] 09:32:34 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 14602040 to 14641539
+[processor] 09:32:35 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 14641540 to 14680419
+[processor] 09:32:36 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 14680420 to 14721379
+[processor] 09:32:36 [1m[36mINFO [0m [1m[34msqd:processor[0m 14721379 / 22216750, rate: 41214 blocks/sec, mapping: 2386 blocks/sec, 60 items/sec, eta: 4m
+[processor] 09:32:37 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 14721380 to 14759599
+[processor] 09:32:38 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 14759600 to 14797579
+[processor] 09:32:39 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 14797580 to 14837179
+[processor] 09:32:41 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 14837180 to 14873979
+[processor] 09:32:41 [1m[36mINFO [0m [1m[34msqd:processor[0m 14873979 / 22216750, rate: 41044 blocks/sec, mapping: 3530 blocks/sec, 88 items/sec, eta: 3m
+[processor] 09:32:42 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 14873980 to 14912259
+[processor] 09:32:43 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 14912260 to 14951539
+[processor] 09:32:44 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 14951540 to 14990539
+[processor] 09:32:45 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 14990540 to 15029539
+[processor] 09:32:46 [1m[36mINFO [0m [1m[34msqd:processor[0m 15029539 / 22216750, rate: 40483 blocks/sec, mapping: 1938 blocks/sec, 48 items/sec, eta: 3m
+[processor] 09:32:47 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 15029540 to 15070259
+[processor] 09:32:48 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 15070260 to 15113399
+[processor] 09:32:49 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 15113400 to 15156299
+[processor] 09:32:51 [1m[36mINFO [0m [1m[34msqd:processor[0m 15156299 / 22216750, rate: 39850 blocks/sec, mapping: 443 blocks/sec, 11 items/sec, eta: 3m
+[processor] 09:32:52 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 15156300 to 15227759
+[processor] 09:32:52 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 15227760 to 15240199
+[processor] 09:32:53 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 15240200 to 15281999
+[processor] 09:32:54 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 15282000 to 15321959
+[processor] 09:32:56 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 15321960 to 15361759
+[processor] 09:32:56 [1m[36mINFO [0m [1m[34msqd:processor[0m 15361759 / 22216750, rate: 38648 blocks/sec, mapping: 2019 blocks/sec, 50 items/sec, eta: 3m
+[processor] 09:32:57 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 15361760 to 15401019
+[processor] 09:32:58 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 15401020 to 15439959
+[processor] 09:32:59 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 15439960 to 15482239
+[processor] 09:33:01 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 15482240 to 15523059
+[processor] 09:33:01 [1m[36mINFO [0m [1m[34msqd:processor[0m 15523059 / 22216750, rate: 37639 blocks/sec, mapping: 613 blocks/sec, 15 items/sec, eta: 3m
+[processor] 09:33:02 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 15523060 to 15565999
+[processor] 09:33:03 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 15566000 to 15606459
+[processor] 09:33:04 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 15606460 to 15648239
+[processor] 09:33:06 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 15648240 to 15689199
+[processor] 09:33:06 [1m[36mINFO [0m [1m[34msqd:processor[0m 15689199 / 22216750, rate: 37124 blocks/sec, mapping: 976 blocks/sec, 24 items/sec, eta: 3m
+[processor] 09:33:07 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 15689200 to 15737719
+[processor] 09:33:08 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 15737720 to 15781079
+[processor] 09:33:10 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 15781080 to 15824279
+[processor] 09:33:11 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 15824280 to 15865639
+[processor] 09:33:11 [1m[36mINFO [0m [1m[34msqd:processor[0m 15865639 / 22216750, rate: 36652 blocks/sec, mapping: 1533 blocks/sec, 38 items/sec, eta: 3m
+[processor] 09:33:13 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 15865640 to 15909199
+[processor] 09:33:14 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 15909200 to 15949179
+[processor] 09:33:16 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 15949180 to 15991299
+[processor] 09:33:17 [1m[36mINFO [0m [1m[34msqd:processor[0m 15991299 / 22216750, rate: 35609 blocks/sec, mapping: 1394 blocks/sec, 35 items/sec, eta: 3m
+[processor] 09:33:17 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 15991300 to 16035679
+[processor] 09:33:18 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 16035680 to 16081279
+[processor] 09:33:20 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 16081280 to 16125859
+[processor] 09:33:21 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 16125860 to 16171339
+[processor] 09:33:22 [1m[36mINFO [0m [1m[34msqd:processor[0m 16171339 / 22216750, rate: 34900 blocks/sec, mapping: 766 blocks/sec, 19 items/sec, eta: 3m
+[processor] 09:33:23 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 16171340 to 16251999
+[processor] 09:33:24 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 16252000 to 16256259
+[processor] 09:33:25 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 16256260 to 16299859
+[processor] 09:33:26 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 16299860 to 16343639
+[processor] 09:33:27 [1m[36mINFO [0m [1m[34msqd:processor[0m 16343639 / 22216750, rate: 34007 blocks/sec, mapping: 1585 blocks/sec, 40 items/sec, eta: 3m
+[processor] 09:33:27 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 16343640 to 16384579
+[processor] 09:33:29 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 16384580 to 16423939
+[processor] 09:33:30 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 16423940 to 16465999
+[processor] 09:33:31 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 16466000 to 16507879
+[processor] 09:33:32 [1m[36mINFO [0m [1m[34msqd:processor[0m 16507879 / 22216750, rate: 33156 blocks/sec, mapping: 1992 blocks/sec, 50 items/sec, eta: 3m
+[processor] 09:33:33 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 16507880 to 16579939
+[processor] 09:33:34 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 16579940 to 16587659
+[processor] 09:33:35 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 16587660 to 16627759
+[processor] 09:33:36 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 16627760 to 16665079
+[processor] 09:33:37 [1m[36mINFO [0m [1m[34msqd:processor[0m 16665079 / 22216750, rate: 32418 blocks/sec, mapping: 2176 blocks/sec, 54 items/sec, eta: 3m
+[processor] 09:33:38 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 16665080 to 16700699
+[processor] 09:33:40 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 16700700 to 16767459
+[processor] 09:33:41 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 16767460 to 16811519
+[processor] 09:33:42 [1m[36mINFO [0m [1m[34msqd:processor[0m 16811519 / 22216750, rate: 31875 blocks/sec, mapping: 2465 blocks/sec, 51 items/sec, eta: 3m
+[processor] 09:33:43 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 16811520 to 16849359
+[processor] 09:33:45 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 16849360 to 16922139
+[processor] 09:33:46 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 16922140 to 16957879
+[processor] 09:33:47 [1m[36mINFO [0m [1m[34msqd:processor[0m 16957879 / 22216750, rate: 31847 blocks/sec, mapping: 3042 blocks/sec, 54 items/sec, eta: 3m
+[processor] 09:33:47 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 16957880 to 16992159
+[processor] 09:33:48 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 16992160 to 17028819
+[processor] 09:33:49 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 17028820 to 17065939
+[processor] 09:33:51 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 17065940 to 17140779
+[processor] 09:33:52 [1m[36mINFO [0m [1m[34msqd:processor[0m 17140779 / 22216750, rate: 32224 blocks/sec, mapping: 2520 blocks/sec, 52 items/sec, eta: 3m
+[processor] 09:33:52 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 17140780 to 17178599
+[processor] 09:33:53 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 17178600 to 17214979
+[processor] 09:33:54 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 17214980 to 17250659
+[processor] 09:33:55 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 17250660 to 17285499
+[processor] 09:33:56 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 17285500 to 17321439
+[processor] 09:33:57 [1m[36mINFO [0m [1m[34msqd:processor[0m 17321439 / 22216750, rate: 32413 blocks/sec, mapping: 1654 blocks/sec, 41 items/sec, eta: 3m
+[processor] 09:33:57 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 17321440 to 17356179
+[processor] 09:33:59 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 17356180 to 17390979
+[processor] 09:34:00 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 17390980 to 17425659
+[processor] 09:34:02 [1m[36mINFO [0m [1m[34msqd:processor[0m 17425659 / 22216750, rate: 32212 blocks/sec, mapping: 1668 blocks/sec, 42 items/sec, eta: 3m
+[processor] 09:34:02 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 17425660 to 17496019
+[processor] 09:34:03 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 17496020 to 17532039
+[processor] 09:34:04 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 17532040 to 17567799
+[processor] 09:34:06 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 17567800 to 17601739
+[processor] 09:34:07 [1m[36mINFO [0m [1m[34msqd:processor[0m 17601739 / 22216750, rate: 31978 blocks/sec, mapping: 1221 blocks/sec, 25 items/sec, eta: 3m
+[processor] 09:34:07 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 17601740 to 17640259
+[processor] 09:34:08 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 17640260 to 17673979
+[processor] 09:34:10 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 17673980 to 17739779
+[processor] 09:34:12 [1m[36mINFO [0m [1m[34msqd:processor[0m 17739779 / 22216750, rate: 32109 blocks/sec, mapping: 400 blocks/sec, 8 items/sec, eta: 3m
+[processor] 09:34:12 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 17739780 to 17804739
+[processor] 09:34:13 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 17804740 to 17837259
+[processor] 09:34:15 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 17837260 to 17869639
+[processor] 09:34:16 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 17869640 to 17901959
+[processor] 09:34:16 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 17901960 to 17933819
+[processor] 09:34:17 [1m[36mINFO [0m [1m[34msqd:processor[0m 17933819 / 22216750, rate: 31604 blocks/sec, mapping: 1536 blocks/sec, 32 items/sec, eta: 3m
+[processor] 09:34:17 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 17933820 to 17965819
+[processor] 09:34:18 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 17965820 to 17997659
+[processor] 09:34:19 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 17997660 to 18028759
+[processor] 09:34:21 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18028760 to 18061059
+[processor] 09:34:22 [1m[36mINFO [0m [1m[34msqd:processor[0m 18061059 / 22216750, rate: 31900 blocks/sec, mapping: 1315 blocks/sec, 33 items/sec, eta: 3m
+[processor] 09:34:22 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18061060 to 18092599
+[processor] 09:34:23 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18092600 to 18123719
+[processor] 09:34:24 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18123720 to 18154559
+[processor] 09:34:25 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18154560 to 18185159
+[processor] 09:34:26 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18185160 to 18216439
+[processor] 09:34:27 [1m[36mINFO [0m [1m[34msqd:processor[0m 18216439 / 22216750, rate: 31282 blocks/sec, mapping: 1314 blocks/sec, 33 items/sec, eta: 3m
+[processor] 09:34:27 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18216440 to 18247359
+[processor] 09:34:28 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18247360 to 18277759
+[processor] 09:34:29 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18277760 to 18308119
+[processor] 09:34:30 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18308120 to 18337919
+[processor] 09:34:31 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18337920 to 18369799
+[processor] 09:34:32 [1m[36mINFO [0m [1m[34msqd:processor[0m 18369799 / 22216750, rate: 31182 blocks/sec, mapping: 1162 blocks/sec, 29 items/sec, eta: 3m
+[processor] 09:34:32 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18369800 to 18400899
+[processor] 09:34:34 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18400900 to 18432279
+[processor] 09:34:35 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18432280 to 18462145
+[processor] 09:34:35 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18462146 to 18492150
+[processor] 09:34:36 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18492151 to 18520789
+[processor] 09:34:37 [1m[36mINFO [0m [1m[34msqd:processor[0m 18520789 / 22216750, rate: 30841 blocks/sec, mapping: 2306 blocks/sec, 58 items/sec, eta: 2m
+[processor] 09:34:37 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18520790 to 18549909
+[processor] 09:34:39 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18549910 to 18578542
+[processor] 09:34:40 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18578543 to 18636444
+[processor] 09:34:41 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18636445 to 18662967
+[processor] 09:34:42 [1m[36mINFO [0m [1m[34msqd:processor[0m 18662967 / 22216750, rate: 30887 blocks/sec, mapping: 2504 blocks/sec, 52 items/sec, eta: 2m
+[processor] 09:34:42 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18662968 to 18693658
+[processor] 09:34:43 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18693659 to 18723786
+[processor] 09:34:44 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18723787 to 18752164
+[processor] 09:34:45 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18752165 to 18778083
+[processor] 09:34:46 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18778084 to 18803806
+[processor] 09:34:47 [1m[36mINFO [0m [1m[34msqd:processor[0m 18803806 / 22216750, rate: 30637 blocks/sec, mapping: 2690 blocks/sec, 67 items/sec, eta: 2m
+[processor] 09:34:47 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18803807 to 18832393
+[processor] 09:34:49 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18832394 to 18892766
+[processor] 09:34:50 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18892767 to 18922825
+[processor] 09:34:51 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18922826 to 18950437
+[processor] 09:34:52 [1m[36mINFO [0m [1m[34msqd:processor[0m 18950437 / 22216750, rate: 29970 blocks/sec, mapping: 1983 blocks/sec, 41 items/sec, eta: 2m
+[processor] 09:34:52 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18950438 to 18975714
+[processor] 09:34:53 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 18975715 to 19004602
+[processor] 09:34:54 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 19004603 to 19035728
+[processor] 09:34:55 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 19035729 to 19063439
+[processor] 09:34:56 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 19063440 to 19091498
+[processor] 09:34:57 [1m[36mINFO [0m [1m[34msqd:processor[0m 19091498 / 22216750, rate: 29848 blocks/sec, mapping: 2862 blocks/sec, 72 items/sec, eta: 2m
+[processor] 09:34:57 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 19091499 to 19118767
+[processor] 09:34:58 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 19118768 to 19147096
+[processor] 09:35:00 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 19147097 to 19208592
+[processor] 09:35:00 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 19208593 to 19237554
+[processor] 09:35:01 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 19237555 to 19265806
+[processor] 09:35:02 [1m[36mINFO [0m [1m[34msqd:processor[0m 19265806 / 22216750, rate: 29934 blocks/sec, mapping: 1329 blocks/sec, 28 items/sec, eta: 2m
+[processor] 09:35:02 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 19265807 to 19294706
+[processor] 09:35:03 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 19294707 to 19322380
+[processor] 09:35:04 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 19322381 to 19350219
+[processor] 09:35:05 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 19350220 to 19380434
+[processor] 09:35:06 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 19380435 to 19410787
+[processor] 09:35:07 [1m[36mINFO [0m [1m[34msqd:processor[0m 19410787 / 22216750, rate: 29974 blocks/sec, mapping: 1712 blocks/sec, 43 items/sec, eta: 2m
+[processor] 09:35:07 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 19410788 to 19444797
+[processor] 09:35:08 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 19444798 to 19479038
+[processor] 09:35:09 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 19479039 to 19512873
+[processor] 09:35:10 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 19512874 to 19547914
+[processor] 09:35:11 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 19547915 to 19583177
+[processor] 09:35:12 [1m[36mINFO [0m [1m[34msqd:processor[0m 19583177 / 22216750, rate: 29944 blocks/sec, mapping: 2793 blocks/sec, 70 items/sec, eta: 2m
+[processor] 09:35:12 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 19583178 to 19618428
+[processor] 09:35:13 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 19618429 to 19652487
+[processor] 09:35:14 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 19652488 to 19687063
+[processor] 09:35:15 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 19687064 to 19722562
+[processor] 09:35:16 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 19722563 to 19756806
+[processor] 09:35:17 [1m[36mINFO [0m [1m[34msqd:processor[0m 19756806 / 22216750, rate: 30643 blocks/sec, mapping: 2816 blocks/sec, 70 items/sec, eta: 2m
+[processor] 09:35:18 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 19756807 to 19793899
+[processor] 09:35:19 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 19793900 to 19831628
+[processor] 09:35:20 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 19831629 to 19869102
+[processor] 09:35:21 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 19869103 to 19906074
+[processor] 09:35:22 [1m[36mINFO [0m [1m[34msqd:processor[0m 19906074 / 22216750, rate: 30466 blocks/sec, mapping: 1739 blocks/sec, 43 items/sec, eta: 2m
+[processor] 09:35:22 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 19906075 to 19942484
+[processor] 09:35:25 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 19942485 to 20012595
+[processor] 09:35:26 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 6 transfers from 20012596 to 20049860
+[processor] 09:35:27 [1m[36mINFO [0m [1m[34msqd:processor[0m 20049860 / 22216750, rate: 30760 blocks/sec, mapping: 2088 blocks/sec, 85 items/sec, eta: 2m
+[processor] 09:35:27 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 20049861 to 20086631
+[processor] 09:35:28 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 2 transfers from 20086632 to 20122902
+[processor] 09:35:29 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 20122903 to 20159534
+[processor] 09:35:31 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 5 transfers from 20159535 to 20195854
+[processor] 09:35:32 [1m[36mINFO [0m [1m[34msqd:processor[0m 20195854 / 22216750, rate: 30765 blocks/sec, mapping: 1779 blocks/sec, 126 items/sec, eta: 2m
+[processor] 09:35:32 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 20195855 to 20233906
+[processor] 09:35:33 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 5 transfers from 20233907 to 20271015
+[processor] 09:35:35 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 9 transfers from 20271016 to 20308764
+[processor] 09:35:36 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 34 transfers from 20308765 to 20346019
+[processor] 09:35:37 [1m[36mINFO [0m [1m[34msqd:processor[0m 20346019 / 22216750, rate: 30913 blocks/sec, mapping: 1991 blocks/sec, 432 items/sec, eta: 2m
+[processor] 09:35:37 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 3 transfers from 20346020 to 20383355
+[processor] 09:35:38 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 3 transfers from 20383356 to 20422269
+[processor] 09:35:39 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 7 transfers from 20422270 to 20459121
+[processor] 09:35:40 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 6 transfers from 20459122 to 20496698
+[processor] 09:35:41 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 8 transfers from 20496699 to 20534583
+[processor] 09:35:42 [1m[36mINFO [0m [1m[34msqd:processor[0m 20534583 / 22216750, rate: 31314 blocks/sec, mapping: 2892 blocks/sec, 345 items/sec, eta: 54s
+[processor] 09:35:44 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 447 transfers from 20534584 to 20586990
+[processor] 09:35:45 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 1264 transfers from 20586991 to 20609892
+[processor] 09:35:47 [1m[36mINFO [0m [1m[34msqd:processor[0m 20609892 / 22216750, rate: 30352 blocks/sec, mapping: 2832 blocks/sec, 3227 items/sec, eta: 53s
+[processor] 09:35:47 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 7769 transfers from 20609893 to 20648011
+[processor] 09:35:50 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 12695 transfers from 20648012 to 20687533
+[processor] 09:35:52 [1m[36mINFO [0m [1m[34msqd:processor[0m 20687533 / 22216750, rate: 29474 blocks/sec, mapping: 12474 blocks/sec, 19373 items/sec, eta: 52s
+[processor] 09:35:52 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 11052 transfers from 20687534 to 20726040
+[processor] 09:35:55 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 25592 transfers from 20726041 to 20764287
+[processor] 09:35:56 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 5186 transfers from 20764288 to 20802295
+[processor] 09:35:57 [1m[36mINFO [0m [1m[34msqd:processor[0m 20802295 / 22216750, rate: 28392 blocks/sec, mapping: 16933 blocks/sec, 35057 items/sec, eta: 50s
+[processor] 09:35:57 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 3411 transfers from 20802296 to 20840690
+[processor] 09:36:00 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 8341 transfers from 20840691 to 20878007
+[processor] 09:36:02 [1m[36mINFO [0m [1m[34msqd:processor[0m 20878007 / 22216750, rate: 27825 blocks/sec, mapping: 14586 blocks/sec, 33529 items/sec, eta: 48s
+[processor] 09:36:02 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 13412 transfers from 20878008 to 20914632
+[processor] 09:36:05 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 6262 transfers from 20914633 to 20952337
+[processor] 09:36:07 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 4483 transfers from 20952338 to 20989751
+[processor] 09:36:07 [1m[36mINFO [0m [1m[34msqd:processor[0m 20952337 / 22216750, rate: 26897 blocks/sec, mapping: 9184 blocks/sec, 18688 items/sec, eta: 47s
+[processor] 09:36:09 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 7408 transfers from 20989752 to 21027441
+[processor] 09:36:11 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 9960 transfers from 21027442 to 21067584
+[processor] 09:36:12 [1m[36mINFO [0m [1m[34msqd:processor[0m 21067584 / 22216750, rate: 25684 blocks/sec, mapping: 8488 blocks/sec, 16222 items/sec, eta: 45s
+[processor] 09:36:13 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 8969 transfers from 21067585 to 21106864
+[processor] 09:36:15 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 4854 transfers from 21106865 to 21144256
+[processor] 09:36:17 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 2124 transfers from 21144257 to 21181186
+[processor] 09:36:17 [1m[36mINFO [0m [1m[34msqd:processor[0m 21144256 / 22216750, rate: 25266 blocks/sec, mapping: 10964 blocks/sec, 19820 items/sec, eta: 42s
+[processor] 09:36:19 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 3334 transfers from 21181187 to 21218166
+[processor] 09:36:20 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 2503 transfers from 21218167 to 21255194
+[processor] 09:36:22 [1m[36mINFO [0m [1m[34msqd:processor[0m 21255194 / 22216750, rate: 24875 blocks/sec, mapping: 15400 blocks/sec, 26967 items/sec, eta: 39s
+[processor] 09:36:22 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 2815 transfers from 21255195 to 21292120
+[processor] 09:36:23 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 2097 transfers from 21292121 to 21328573
+[processor] 09:36:25 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 2995 transfers from 21328574 to 21364681
+[processor] 09:36:27 [1m[36mINFO [0m [1m[34msqd:processor[0m 21364681 / 22216750, rate: 24365 blocks/sec, mapping: 11926 blocks/sec, 18336 items/sec, eta: 35s
+[processor] 09:36:27 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 4230 transfers from 21364682 to 21401223
+[processor] 09:36:29 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 3307 transfers from 21401224 to 21437157
+[processor] 09:36:31 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 5775 transfers from 21437158 to 21473487
+[processor] 09:36:32 [1m[36mINFO [0m [1m[34msqd:processor[0m 21473487 / 22216750, rate: 23543 blocks/sec, mapping: 9559 blocks/sec, 15253 items/sec, eta: 32s
+[processor] 09:36:35 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 39374 transfers from 21473488 to 21546954
+[processor] 09:36:37 [1m[36mINFO [0m [1m[34msqd:processor[0m 21546954 / 22216750, rate: 23152 blocks/sec, mapping: 14487 blocks/sec, 26832 items/sec, eta: 29s
+[processor] 09:36:37 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 7830 transfers from 21546955 to 21583119
+[processor] 09:36:39 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 9127 transfers from 21583120 to 21619368
+[processor] 09:36:40 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 5437 transfers from 21619369 to 21655482
+[processor] 09:36:42 [1m[36mINFO [0m [1m[34msqd:processor[0m 21655482 / 22216750, rate: 22673 blocks/sec, mapping: 18059 blocks/sec, 33490 items/sec, eta: 25s
+[processor] 09:36:43 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 7702 transfers from 21655483 to 21710089
+[processor] 09:36:44 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 2900 transfers from 21710090 to 21727607
+[processor] 09:36:46 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 10677 transfers from 21727608 to 21764190
+[processor] 09:36:47 [1m[36mINFO [0m [1m[34msqd:processor[0m 21764190 / 22216750, rate: 22026 blocks/sec, mapping: 7972 blocks/sec, 15508 items/sec, eta: 21s
+[processor] 09:36:48 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 4426 transfers from 21764191 to 21796237
+[processor] 09:36:50 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 3407 transfers from 21796238 to 21829477
+[processor] 09:36:52 [1m[36mINFO [0m [1m[34msqd:processor[0m 21829477 / 22216750, rate: 21668 blocks/sec, mapping: 5739 blocks/sec, 12009 items/sec, eta: 18s
+[processor] 09:36:52 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 3335 transfers from 21829478 to 21862508
+[processor] 09:36:53 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 3556 transfers from 21862509 to 21894854
+[processor] 09:36:55 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 3626 transfers from 21894855 to 21926851
+[processor] 09:36:57 [1m[36mINFO [0m [1m[34msqd:processor[0m 21926851 / 22216750, rate: 21029 blocks/sec, mapping: 9752 blocks/sec, 19613 items/sec, eta: 14s
+[processor] 09:36:57 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 3731 transfers from 21926852 to 21954901
+[processor] 09:36:59 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 2852 transfers from 21954902 to 21986094
+[processor] 09:37:01 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 2969 transfers from 21986095 to 22015088
+[processor] 09:37:02 [1m[36mINFO [0m [1m[34msqd:processor[0m 22015088 / 22216750, rate: 20240 blocks/sec, mapping: 8068 blocks/sec, 17632 items/sec, eta: 10s
+[processor] 09:37:04 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 5745 transfers from 22015089 to 22056445
+[processor] 09:37:05 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 2624 transfers from 22056446 to 22077110
+[processor] 09:37:07 [1m[36mINFO [0m [1m[34msqd:processor[0m 22077110 / 22216750, rate: 19677 blocks/sec, mapping: 5371 blocks/sec, 13641 items/sec, eta: 7s
+[processor] 09:37:07 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 3156 transfers from 22077111 to 22110359
+[processor] 09:37:09 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 3646 transfers from 22110360 to 22138464
+[processor] 09:37:12 [1m[36mINFO [0m [1m[34msqd:processor[0m 22138464 / 22216750, rate: 19329 blocks/sec, mapping: 6034 blocks/sec, 15017 items/sec, eta: 4s
+[processor] 09:37:12 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 3410 transfers from 22138465 to 22166402
+[processor] 09:37:15 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 3694 transfers from 22166403 to 22194442
+[processor] 09:37:16 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 3760 transfers from 22194443 to 22216750
+[processor] 09:37:16 [1m[36mINFO [0m [1m[34msqd:processor[0m using chain RPC data source
+[processor] 09:37:17 [1m[36mINFO [0m [1m[34msqd:processor[0m 22216750 / 22217290, rate: 18320 blocks/sec, mapping: 5536 blocks/sec, 12301 items/sec, eta: 0s
+[processor] 09:37:20 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22216751 to 22216760
+[processor] 09:37:20 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 3 transfers from 22216761 to 22216770
+[processor] 09:37:22 [1m[36mINFO [0m [1m[34msqd:processor[0m 22216770 / 22217290, rate: 17130 blocks/sec, mapping: 4522 blocks/sec, 10202 items/sec, eta: 0s
+[processor] 09:37:22 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 5 transfers from 22216771 to 22216780
+[processor] 09:37:24 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 2 transfers from 22216781 to 22216790
+[processor] 09:37:25 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 1 transfers from 22216791 to 22216800
+[processor] 09:37:25 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22216801 to 22216810
+[processor] 09:37:26 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22216811 to 22216820
+[processor] 09:37:27 [1m[36mINFO [0m [1m[34msqd:processor[0m 22216820 / 22217290, rate: 15911 blocks/sec, mapping: 252 blocks/sec, 50 items/sec, eta: 0s
+[processor] 09:37:27 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 1 transfers from 22216821 to 22216830
+[processor] 09:37:28 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22216831 to 22216840
+[processor] 09:37:29 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22216841 to 22216850
+[processor] 09:37:30 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22216851 to 22216860
+[processor] 09:37:31 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22216861 to 22216870
+[processor] 09:37:32 [1m[36mINFO [0m [1m[34msqd:processor[0m 22216870 / 22217290, rate: 14705 blocks/sec, mapping: 412 blocks/sec, 41 items/sec, eta: 0s
+[processor] 09:37:33 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22216871 to 22216880
+[processor] 09:37:34 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 3 transfers from 22216881 to 22216890
+[processor] 09:37:35 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22216891 to 22216900
+[processor] 09:37:36 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22216901 to 22216910
+[processor] 09:37:37 [1m[36mINFO [0m [1m[34msqd:processor[0m 22216910 / 22217290, rate: 13720 blocks/sec, mapping: 375 blocks/sec, 53 items/sec, eta: 0s
+[processor] 09:37:38 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22216911 to 22216920
+[processor] 09:37:39 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22216921 to 22216930
+[processor] 09:37:40 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22216931 to 22216940
+[processor] 09:37:41 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22216941 to 22216950
+[processor] 09:37:42 [1m[36mINFO [0m [1m[34msqd:processor[0m 22216950 / 22217291, rate: 12253 blocks/sec, mapping: 417 blocks/sec, 42 items/sec, eta: 0s
+[processor] 09:37:42 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22216951 to 22216960
+[processor] 09:37:44 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22216961 to 22216970
+[processor] 09:37:44 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22216971 to 22216980
+[processor] 09:37:46 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 1 transfers from 22216981 to 22216990
+[processor] 09:37:47 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 3 transfers from 22216991 to 22217000
+[processor] 09:37:47 [1m[36mINFO [0m [1m[34msqd:processor[0m 22217000 / 22217291, rate: 10508 blocks/sec, mapping: 497 blocks/sec, 70 items/sec, eta: 0s
+[processor] 09:37:48 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217001 to 22217010
+[processor] 09:37:50 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217011 to 22217020
+[processor] 09:37:50 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217021 to 22217030
+[processor] 09:37:51 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217031 to 22217040
+[processor] 09:37:52 [1m[36mINFO [0m [1m[34msqd:processor[0m 22217040 / 22217291, rate: 8847 blocks/sec, mapping: 419 blocks/sec, 59 items/sec, eta: 0s
+[processor] 09:37:52 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217041 to 22217050
+[processor] 09:37:53 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217051 to 22217060
+[processor] 09:37:54 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217061 to 22217070
+[processor] 09:37:56 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217071 to 22217080
+[processor] 09:37:56 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217081 to 22217090
+[processor] 09:37:57 [1m[36mINFO [0m [1m[34msqd:processor[0m 22217090 / 22217291, rate: 6886 blocks/sec, mapping: 430 blocks/sec, 43 items/sec, eta: 0s
+[processor] 09:37:58 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 2 transfers from 22217091 to 22217100
+[processor] 09:37:58 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 1 transfers from 22217101 to 22217110
+[processor] 09:38:00 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217111 to 22217120
+[processor] 09:38:01 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217121 to 22217130
+[processor] 09:38:02 [1m[36mINFO [0m [1m[34msqd:processor[0m 22217130 / 22217292, rate: 5128 blocks/sec, mapping: 318 blocks/sec, 38 items/sec, eta: 0s
+[processor] 09:38:03 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217131 to 22217140
+[processor] 09:38:03 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217141 to 22217150
+[processor] 09:38:05 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217151 to 22217160
+[processor] 09:38:06 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217161 to 22217170
+[processor] 09:38:06 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217171 to 22217180
+[processor] 09:38:07 [1m[36mINFO [0m [1m[34msqd:processor[0m 22217180 / 22217292, rate: 3109 blocks/sec, mapping: 263 blocks/sec, 26 items/sec, eta: 0s
+[processor] 09:38:07 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217181 to 22217190
+[processor] 09:38:08 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 1 transfers from 22217191 to 22217200
+[processor] 09:38:09 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217201 to 22217210
+[processor] 09:38:11 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 3 transfers from 22217211 to 22217220
+[processor] 09:38:12 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217221 to 22217230
+[processor] 09:38:12 [1m[36mINFO [0m [1m[34msqd:processor[0m 22217230 / 22217292, rate: 855 blocks/sec, mapping: 339 blocks/sec, 47 items/sec, eta: 0s
+[processor] 09:38:13 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 1 transfers from 22217231 to 22217240
+[processor] 09:38:14 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 1 transfers from 22217241 to 22217250
+[processor] 09:38:15 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217251 to 22217260
+[processor] 09:38:16 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217261 to 22217270
+[processor] 09:38:17 [1m[36mINFO [0m [1m[34msqd:processor[0m 22217270 / 22217292, rate: 9 blocks/sec, mapping: 386 blocks/sec, 39 items/sec, eta: 3s
+[processor] 09:38:17 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 2 transfers from 22217271 to 22217280
+[processor] 09:38:18 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217281 to 22217290
+[processor] 09:38:18 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217291 to 22217293
+[processor] 09:38:21 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217294 to 22217294
+[processor] 09:38:21 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217295 to 22217295
+[processor] 09:38:21 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217296 to 22217296
+[processor] 09:38:21 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217297 to 22217297
+[processor] 09:38:21 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217298 to 22217298
+[processor] 09:38:21 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217299 to 22217299
+[processor] 09:38:21 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217300 to 22217300
+[processor] 09:38:21 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217301 to 22217301
+[processor] 09:38:21 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217302 to 22217302
+[processor] 09:38:21 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217303 to 22217303
+[processor] 09:38:22 [1m[36mINFO [0m [1m[34msqd:processor[0m 22217303 / 22217303, rate: 9 blocks/sec, mapping: 307 blocks/sec, 43 items/sec, eta: 0s
+[processor] 09:38:23 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217304 to 22217304
+[processor] 09:38:23 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217305 to 22217305
+[processor] 09:38:23 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217306 to 22217306
+[processor] 09:38:23 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217307 to 22217307
+[processor] 09:38:23 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217308 to 22217308
+[processor] 09:38:23 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217309 to 22217309
+[processor] 09:38:23 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217310 to 22217310
+[processor] 09:38:23 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217311 to 22217311
+[processor] 09:38:23 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217312 to 22217312
+[processor] 09:38:26 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217313 to 22217313
+[processor] 09:38:26 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217314 to 22217314
+[processor] 09:38:26 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217315 to 22217315
+[processor] 09:38:26 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217316 to 22217316
+[processor] 09:38:26 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217317 to 22217317
+[processor] 09:38:26 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217318 to 22217318
+[processor] 09:38:26 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217319 to 22217319
+[processor] 09:38:26 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217320 to 22217320
+[processor] 09:38:26 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217321 to 22217321
+[processor] 09:38:26 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217322 to 22217322
+[processor] 09:38:27 [1m[36mINFO [0m [1m[34msqd:processor[0m 22217322 / 22217322, rate: 8 blocks/sec, mapping: 249 blocks/sec, 30 items/sec, eta: 0s
+[processor] 09:38:27 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217323 to 22217323
+[processor] 09:38:27 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217324 to 22217324
+[processor] 09:38:27 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217325 to 22217325
+[processor] 09:38:27 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217326 to 22217326
+[processor] 09:38:27 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217327 to 22217327
+[processor] 09:38:27 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217328 to 22217328
+[processor] 09:38:27 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217329 to 22217329
+[processor] 09:38:27 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217330 to 22217330
+[processor] 09:38:27 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217331 to 22217331
+[processor] 09:38:29 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217332 to 22217332
+[processor] 09:38:29 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217333 to 22217333
+[processor] 09:38:29 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217334 to 22217334
+[processor] 09:38:29 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217335 to 22217335
+[processor] 09:38:29 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217336 to 22217336
+[processor] 09:38:29 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217337 to 22217337
+[processor] 09:38:29 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217338 to 22217338
+[processor] 09:38:29 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217339 to 22217339
+[processor] 09:38:29 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217340 to 22217340
+[processor] 09:38:29 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217341 to 22217341
+[processor] 09:38:31 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217342 to 22217342
+[processor] 09:38:31 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217343 to 22217343
+[processor] 09:38:31 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217344 to 22217344
+[processor] 09:38:31 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217345 to 22217345
+[processor] 09:38:31 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217346 to 22217346
+[processor] 09:38:31 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217347 to 22217347
+[processor] 09:38:31 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217348 to 22217348
+[processor] 09:38:31 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217349 to 22217349
+[processor] 09:38:31 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217350 to 22217350
+[processor] 09:38:32 [1m[36mINFO [0m [1m[34msqd:processor[0m 22217350 / 22217350, rate: 8 blocks/sec, mapping: 245 blocks/sec, 26 items/sec, eta: 0s
+[processor] 09:38:34 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217351 to 22217351
+[processor] 09:38:34 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217352 to 22217352
+[processor] 09:38:34 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217353 to 22217353
+[processor] 09:38:34 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217354 to 22217354
+[processor] 09:38:34 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217355 to 22217355
+[processor] 09:38:34 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217356 to 22217356
+[processor] 09:38:34 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217357 to 22217357
+[processor] 09:38:34 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217358 to 22217358
+[processor] 09:38:34 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217359 to 22217359
+[processor] 09:38:34 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 3 transfers from 22217360 to 22217360
+[processor] 09:38:36 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217361 to 22217361
+[processor] 09:38:36 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217362 to 22217362
+[processor] 09:38:36 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217363 to 22217363
+[processor] 09:38:36 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217364 to 22217364
+[processor] 09:38:36 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217365 to 22217365
+[processor] 09:38:36 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217366 to 22217366
+[processor] 09:38:36 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217367 to 22217367
+[processor] 09:38:36 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217368 to 22217368
+[processor] 09:38:36 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 1 transfers from 22217369 to 22217369
+[processor] 09:38:37 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217370 to 22217370
+[processor] 09:38:37 [1m[36mINFO [0m [1m[34msqd:processor[0m 22217370 / 22217370, rate: 8 blocks/sec, mapping: 182 blocks/sec, 33 items/sec, eta: 0s
+[processor] 09:38:42 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217371 to 22217371
+[processor] 09:38:42 [1m[36mINFO [0m [1m[34msqd:processor[0m 22217371 / 22217371, rate: 7 blocks/sec, mapping: 160 blocks/sec, 37 items/sec, eta: 0s
+[processor] 09:38:53 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217372 to 22217372
+[processor] 09:38:53 [1m[36mINFO [0m [1m[34msqd:processor[0m 22217372 / 22217372, rate: 6 blocks/sec, mapping: 49 blocks/sec, 16 items/sec, eta: 0s
+[processor] 09:39:03 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217373 to 22217373
+[processor] 09:39:03 [1m[36mINFO [0m [1m[34msqd:processor[0m 22217373 / 22217373, rate: 5 blocks/sec, mapping: 29 blocks/sec, 11 items/sec, eta: 0s
+[processor] 09:39:19 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217374 to 22217374
+[processor] 09:39:19 [1m[36mINFO [0m [1m[34msqd:processor[0m 22217374 / 22217374, rate: 4 blocks/sec, mapping: 11 blocks/sec, 11 items/sec, eta: 0s
+[processor] 09:39:29 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217375 to 22217375
+[processor] 09:39:29 [1m[36mINFO [0m [1m[34msqd:processor[0m 22217375 / 22217375, rate: 4 blocks/sec, mapping: 10 blocks/sec, 10 items/sec, eta: 0s
+[processor] 09:39:39 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217376 to 22217376
+[processor] 09:39:39 [1m[36mINFO [0m [1m[34msqd:processor[0m 22217376 / 22217376, rate: 4 blocks/sec, mapping: 10 blocks/sec, 10 items/sec, eta: 0s
+[processor] 09:39:50 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217377 to 22217377
+[processor] 09:39:50 [1m[36mINFO [0m [1m[34msqd:processor[0m 22217377 / 22217377, rate: 3 blocks/sec, mapping: 17 blocks/sec, 17 items/sec, eta: 0s
+[processor] 09:40:05 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217378 to 22217378
+[processor] 09:40:05 [1m[36mINFO [0m [1m[34msqd:processor[0m 22217378 / 22217378, rate: 3 blocks/sec, mapping: 10 blocks/sec, 10 items/sec, eta: 0s
+[processor] 09:40:16 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217379 to 22217379
+[processor] 09:40:16 [1m[36mINFO [0m [1m[34msqd:processor[0m 22217379 / 22217379, rate: 3 blocks/sec, mapping: 7 blocks/sec, 7 items/sec, eta: 0s
+[processor] 09:40:26 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217380 to 22217380
+[processor] 09:40:26 [1m[36mINFO [0m [1m[34msqd:processor[0m 22217380 / 22217380, rate: 2 blocks/sec, mapping: 6 blocks/sec, 6 items/sec, eta: 0s
+[processor] 09:40:42 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217381 to 22217381
+[processor] 09:40:42 [1m[36mINFO [0m [1m[34msqd:processor[0m 22217381 / 22217381, rate: 2 blocks/sec, mapping: 5 blocks/sec, 5 items/sec, eta: 0s
+[processor] 09:40:52 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217382 to 22217382
+[processor] 09:40:52 [1m[36mINFO [0m [1m[34msqd:processor[0m 22217382 / 22217382, rate: 2 blocks/sec, mapping: 5 blocks/sec, 5 items/sec, eta: 0s
+[processor] 09:41:08 [1m[36mINFO [0m [1m[34msqd:processor:mapping[0m Processed 0 transfers from 22217383 to 22217383
+[processor] 09:41:08 [1m[36mINFO [0m [1m[34msqd:processor[0m 22217383 / 22217383, rate: 2 blocks/sec, mapping: 6 blocks/sec, 6 items/sec, eta: 0s
+[processor] 09:41:18 [1m[31mFATAL[0m [1m[34msqd:processor[0m [2mError: connect ECONNREFUSED ::1:23799[0m
+[processor]                              [2m    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1494:16)[0m
+[processor]                              [2m    errno: -61[0m
+[processor]                              [2m    code:[0m [2mECONNREFUSED[0m
+[processor]                              [2m    syscall:[0m [2mconnect[0m
+[processor]                              [2m    address:[0m [2m::1[0m
+[processor]                              [2m    port: 23799[0m
+Process [processor] failed with exit code: 1
+Process [processor] restarting...
+[processor] 09:41:20 [1m[36mINFO [0m [1m[34msqd:commands[0m MIGRATION:APPLY
+[processor] Error: connect ECONNREFUSED ::1:23799
+[processor]     at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1494:16) {
+[processor]   errno: -61,
+[processor]   code: 'ECONNREFUSED',
+[processor]   syscall: 'connect',
+[processor]   address: '::1',
+[processor]   port: 23799
+[processor] }
+Process [processor] failed with exit code: 1
+Process [processor] restarting...
+[processor] 09:41:22 [1m[36mINFO [0m [1m[34msqd:commands[0m MIGRATION:APPLY
+[processor] Error: connect ECONNREFUSED ::1:23799
+[processor]     at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1494:16) {
+[processor]   errno: -61,
+[processor]   code: 'ECONNREFUSED',
+[processor]   syscall: 'connect',
+[processor]   address: '::1',
+[processor]   port: 23799
+[processor] }
+Process [processor] failed with exit code: 1
+Process [processor] restarting...
+[processor] 09:41:25 [1m[36mINFO [0m [1m[34msqd:commands[0m MIGRATION:APPLY
+[processor] Error: connect ECONNREFUSED ::1:23799
+[processor]     at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1494:16) {
+[processor]   errno: -61,
+[processor]   code: 'ECONNREFUSED',
+[processor]   syscall: 'connect',
+[processor]   address: '::1',
+[processor]   port: 23799
+[processor] }
+Process [processor] failed with exit code: 1
+Process [processor] restarting...
+[processor] 09:41:27 [1m[36mINFO [0m [1m[34msqd:commands[0m MIGRATION:APPLY
+[processor] Error: connect ECONNREFUSED ::1:23799
+[processor]     at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1494:16) {
+[processor]   errno: -61,
+[processor]   code: 'ECONNREFUSED',
+[processor]   syscall: 'connect',
+[processor]   address: '::1',
+[processor]   port: 23799
+[processor] }
+Process [processor] failed with exit code: 1
+Process [processor] restarting...
+[processor] 09:41:30 [1m[36mINFO [0m [1m[34msqd:commands[0m MIGRATION:APPLY
+[processor] Error: connect ECONNREFUSED ::1:23799
+[processor]     at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1494:16) {
+[processor]   errno: -61,
+[processor]   code: 'ECONNREFUSED',
+[processor]   syscall: 'connect',
+[processor]   address: '::1',
+[processor]   port: 23799
+[processor] }
+ ›   Error: Process [processor] failed with exit code: 1

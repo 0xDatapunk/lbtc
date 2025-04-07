@@ -46,3 +46,5 @@ build
 **/*.npmrc
 **/*.lock
 **/migrations/**
+**/internal/**
+

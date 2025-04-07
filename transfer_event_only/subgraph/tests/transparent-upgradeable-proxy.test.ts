@@ -9,7 +9,7 @@ import {
 import { Address } from "@graphprotocol/graph-ts"
 import { AdminChanged } from "../generated/schema"
 import { AdminChanged as AdminChangedEvent } from "../generated/TransparentUpgradeableProxy/TransparentUpgradeableProxy"
-import { handleAdminChanged } from "../src/transparent-upgradeable-proxy"
+import { handleAdminChanged } from "../src/lbtc"
 import { createAdminChangedEvent } from "./transparent-upgradeable-proxy-utils"
 
 // Tests structure (matchstick-as >=0.5.0)

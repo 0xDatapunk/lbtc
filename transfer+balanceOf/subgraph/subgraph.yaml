@@ -1,4 +1,4 @@
-specVersion: 1.3.0
+specVersion: 1.2.0
 indexerHints:
   prune: auto
 schema:
@@ -8,7 +8,7 @@ dataSources:
     name: LBTC
     network: mainnet
     source:
-      address: "0xa1bc65ecf8bc7b2faa22c53bcc49b0376da3845a"
+      address: "0x8236a87084f8B84306f72007F36F2618A5634494"
       abi: LBTC
       startBlock: 0
     mapping:
@@ -16,11 +16,20 @@ dataSources:
       apiVersion: 0.0.9
       language: wasm/assemblyscript
       entities:
+        - Accounts
+        - Snapshot
         - Transfer
+        - AccountRegistry
       abis:
         - name: LBTC
           file: ./abis/LBTC.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
+      blockHandlers:
+        - handler: handleBlock
+          filter:
+            kind: polling
+            # Ethereum blocks are ~12 seconds, so ~300 blocks ≈ 1 hour
+            every: 300
       file: ./src/lbtc.ts

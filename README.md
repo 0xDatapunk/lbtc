@@ -1,6 +1,15 @@
 Solutions comparison
 
 
+| Platform   | transfer_only | transfer+balanceOf | Notes |
+|------------|--------------|-------------------|-------|
+| Sentio     |              |                   |       |
+| Envio      |              |                   |       |
+| Ponder     |              |                   |       |
+| Subsquid   |              |                   |       |
+| Subgraph   |              |                   |       |
+
+
 Envio, very easy to set up project for logs. No need to find implementation contract.
 once given the address, it shows events list to toggle on and off
 

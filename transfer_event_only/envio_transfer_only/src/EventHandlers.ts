@@ -12,6 +12,8 @@ TransparentUpgradeableProxy.Transfer.handler(async ({ event, context }) => {
     from: event.params.from,
     to: event.params.to,
     value: event.params.value,
+    blockNumber: BigInt(event.block.number),
+    transactionHash: event.transaction.hash 
   };
 
   context.TransparentUpgradeableProxy_Transfer.set(entity);

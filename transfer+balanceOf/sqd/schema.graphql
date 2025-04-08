@@ -1,5 +1,5 @@
 type Snapshot @entity {
-  id: ID! # account-timestamp or GLOBAL_UPDATE_KEY for global state
+  id: ID! @index
   account: Accounts @index # Null for global update tracker
   timestampMilli: BigInt! @index # Block timestamp in milliseconds
   mintAmount: BigDecimal # Amount minted in this snapshot (if applicable)
@@ -8,21 +8,21 @@ type Snapshot @entity {
 }
 
 type Accounts @entity {
-  id: ID! # Account address
+  id: ID! @index
   lastSnapshotTimestamp: BigInt! # Timestamp of the last snapshot for this account
   snapshots: [Snapshot!]! @derivedFrom(field: "account") # All snapshots for this account
 }
 
 type AccountRegistry @entity {
-  id: ID! # Always "main"
+  id: ID! @index
   accounts: [String!]! # List of all account addresses
   lastSnapshotTimestamp: BigInt! # Timestamp of the last snapshot for global update
 }
 
 type Transfer @entity {
   id: ID!
-  from: String!
-  to: String!
+  from: String! @index
+  to: String! @index
   value: BigInt!
   blockNumber: BigInt!
   transactionHash: Bytes

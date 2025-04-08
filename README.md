@@ -29,20 +29,18 @@ Events Processed: 250,000
 all events: 5min 400703 events
 transfer only: 7min 296038 events, 4min 296166
 
-
 Ponder, instead of using standard schema.graphql, uses ponder.schema.ts 
 allow block interval function
 pnpm dev hot load
 started at 3:12pm
-transfer+balanceOf 11:55am-
-transfer_only: 3h, 7.5h 6:25:59 PM-7:41:04
-if deployed, 3:47
+transfer+balanceOf Apr 8, 2025 3:32 PM
+transfer_only: 
+
 
 sqd 22210921
 trasnfer only started at 11mins, 8minss
-transfer+balanceOf 12:17am-
+transfer+balanceOf 08.04.2025 16:42:01 -
 need pro-plan to deploy
-
 
 sentio
 transfer only: 7 mins, 9 mins

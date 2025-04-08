@@ -1,12 +1,12 @@
 Solutions comparison
 
 
-| Platform   | transfer_only | transfer+balanceOf | Notes |
+| Platform   | transfer_only | transfer+balanceOf | # records up to block 22210921 |
 |------------|--------------|-------------------|-------|
-| Sentio     |              |                   |       |
-| Envio      |              |                   |       |
-| Ponder     |              |                   |       |
-| Subsquid   |              |                   |       |
+| Sentio     | 8m           |                   | 296734 |
+| Envio      | 3m           |                   | 296734 |
+| Ponder     | 76m          |                   | 296138 |
+| Subsquid   | 12m          |                   | 296734 |
 | Subgraph   |              |                   |       |
 
 
@@ -35,7 +35,7 @@ allow block interval function
 pnpm dev hot load
 started at 3:12pm
 transfer+balanceOf 11:55am-
-transfer_only: 3h, 7.5h
+transfer_only: 3h, 7.5h 6:25:59 PM-7:41:04
 if deployed, 3:47
 
 sqd 22210921

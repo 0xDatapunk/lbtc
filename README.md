@@ -49,8 +49,8 @@ finisehd in 6 hours
 
 subgraph: 
 no bulk update
-transfer_only: 22mins
-transfer+balance: 12:14pm-
+transfer_only: Apr 8, 2025 4:59 PM
+transfer+balance: Apr 8, 2025 5:02 PM
 
 
 goldsky:

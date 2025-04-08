@@ -45,6 +45,9 @@ sqd process
 sqd serve
 ```
 
+deploy
+sqd deploy --org pine-quench .
+
 ## Dev flow
 
 ### 1. Define database schema

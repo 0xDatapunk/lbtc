@@ -24,10 +24,14 @@ export const processor = new EvmBatchProcessor()
     })
     .setFinalityConfirmation(75)
     .setFields({
+        block: {
+            height: true,
+            timestamp: true,
+        },
         transaction: {
+            hash: true,
             from: true,
             value: true,
-            hash: true,
         },
     })
     .setBlockRange({
@@ -36,7 +40,7 @@ export const processor = new EvmBatchProcessor()
 	.addLog({
 		address: [LBTC_PROXY],
 		topic0: [lbtcAbi.events.Transfer.topic],
-		transaction: false,
+		transaction: true,
 		transactionLogs: false,
 	})
 

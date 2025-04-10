@@ -2,7 +2,7 @@
 name: envio
 networks:
 - id: 1
-  start_block: 0
+  start_block: 22210000
   contracts:
   - name: LBTC
     address:

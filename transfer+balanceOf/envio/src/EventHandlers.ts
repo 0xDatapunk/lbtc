@@ -12,6 +12,12 @@ import {
 
 import {getBalance} from "./util"
 
+// Account loader to batch account lookups
+const accountLoader = new Map<string, Promise<Accounts | null>>();
+
+// Snapshot loader to batch snapshot lookups
+const snapshotLoader = new Map<string, Promise<Snapshot | null>>();
+
 LBTC.Transfer.handler(async ({ event, context }) => {
   const HOUR_IN_MS = 60n * 60n * 1000n
   const blockTimestamp = BigInt(event.block.timestamp)
@@ -127,48 +133,61 @@ async function addAccountToRegistry(context: any, accountId: string): Promise<vo
   }
 }
 
-// Helper to get or create an account
+// Helper to get or create an account with loader
 async function getOrCreateAccount(context: any, address: string): Promise<Accounts> {
-  let account = await context.Accounts.get({id: address})
+  const accountId = address.toLowerCase();
+  
+  // Check if we already have a pending load for this account
+  if (!accountLoader.has(accountId)) {
+    accountLoader.set(accountId, context.Accounts.get({id: accountId}));
+  }
+  
+  let account = await accountLoader.get(accountId);
   
   if (!account) {
     account = {
-      id: address,
+      id: accountId,
       lastSnapshotTimestamp: 0n
-    }
-    context.Accounts.set(account)
+    };
+    context.Accounts.set(account);
     // Add to registry
-    addAccountToRegistry(context, account.id)
+    await addAccountToRegistry(context, accountId);
   }
   
-  return account
+  // Clear the loader after we're done
+  accountLoader.delete(accountId);
+  
+  return account;
 }
 
-// Helper to get the last snapshot data
+// Helper to get last snapshot data with loader
 async function getLastSnapshotData(context: any, accountId: string): Promise<{
   point: BigDecimal,
   balance: BigDecimal,
   timestamp: bigint,
   mintAmount: BigDecimal
-  }> {
+}> {
+  // Default values
   let lastPoint = BigDecimal(0)
   let lastBalance = BigDecimal(0)
   let lastTimestamp = 0n
   let lastMintAmount = BigDecimal(0)
+
+  // Check if we already have a pending load for this account's snapshot
+  if (!snapshotLoader.has(accountId)) {
+    snapshotLoader.set(accountId, context.Snapshot.get({id: accountId}));
+  }
   
-  let account = await context.Accounts.get({id: accountId})
-  if (account && account.lastSnapshotTimestamp) {
-    lastTimestamp = account.lastSnapshotTimestamp
-    
-    // If we have a previous snapshot, load it
-    if (lastTimestamp != 0n) {
-      let lastSnapshot = await context.Snapshot.get(`${accountId}-${lastTimestamp}`)
-      if (lastSnapshot) {
-        lastPoint = lastSnapshot.point || BigDecimal(0)
-        lastBalance = lastSnapshot.balance
-        lastMintAmount = lastSnapshot.mintAmount || BigDecimal(0)
-      }
-    }
+  const snapshot = await snapshotLoader.get(accountId);
+  
+  // Clear the loader after we're done
+  snapshotLoader.delete(accountId);
+  
+  if (snapshot) {
+    lastPoint = snapshot.point || BigDecimal(0)
+    lastBalance = snapshot.balance || BigDecimal(0)
+    lastTimestamp = snapshot.timestampMilli || 0n
+    lastMintAmount = snapshot.mintAmount || BigDecimal(0)
   }
   
   return {
